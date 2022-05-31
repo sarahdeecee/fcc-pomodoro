@@ -2,12 +2,12 @@ import * as React from 'react';
 import {useState, useEffect} from 'react';
 
 function Quote() {
-  const [quotes, setQuotes] = useState([]);
+  const [quote, setQuotes] = useState({});
   const [newQuote, setNewQuote] = useState(false);
 
   useEffect(() => {
     setNewQuote(false);
-    fetch("https://type.fit/api/quotes")
+    fetch("https://animechan.vercel.app/api/random")
       .then(res => res.json())
       .then(
         (result) => {
@@ -20,7 +20,7 @@ function Quote() {
       )
   }, [newQuote])
 
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
   const handleNewQuote = () => {
     setNewQuote(true);
@@ -28,10 +28,11 @@ function Quote() {
 
   return (
     <div id="quote-box">
-      {quotes.length ? 
+      {quote.quote ? 
         <>
-          <div id="text">{randomQuote.text}</div>
-          <div id="author">{randomQuote.author}</div>
+          <div id="text">"{quote.quote}"</div>
+          <div id="author">- {quote.character}</div>
+          <div id="anime">({quote.anime})</div>
         </>
       : ''}
       <button id="new-quote" onClick={handleNewQuote}>New Quote</button>
