@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import Quote from './Quote';
-import { Button, Card, CardActions, Typography, IconButton, Box } from '@mui/material';
+import { Paper, Button, Card, CardActions, Typography, IconButton, Box } from '@mui/material';
 import { Twitter, Facebook } from '@mui/icons-material'
 
 function QuoteBox() {
@@ -23,14 +23,16 @@ function QuoteBox() {
       )
   }, [newQuote])
 
-  // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
   const handleNewQuote = () => {
     setNewQuote(true);
   }
 
+  const TITLE = 'Random%20anime%20quotes';
+  const SUMMARY = 'Random%20anime%20quotes';
+  const URL = 'http%3A%2F%2Flocalhost:3000';
+  const IMGURL = 'http%3A%2F%2Fsekainojump.com/wp-content/uploads/2022/05/FSuXvPIUcAAZC0v.jpg';
   return (
-    <Card id="quote-box" sx={{padding: '1em'}}>
+      <Card sx={{padding: '1em'}} id="quote-box">
       {quote.quote ? <Quote quote={quote} /> : ''}
       <CardActions sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Box>
@@ -39,7 +41,7 @@ function QuoteBox() {
               <Twitter />
             </IconButton>
           </a>
-          <a href="#">
+          <a href={`http://www.facebook.com/sharer.php?s=100&p[title]=${TITLE}&p[url]=${URL}&p[summary]=${SUMMARY}&p[images][0]=${IMGURL}`}>
             <IconButton color="primary" id="fb-quote" component="span" aria-label="Post on Facebook" variant="contained">
               <Facebook />
             </IconButton>
@@ -47,7 +49,7 @@ function QuoteBox() {
         </Box>
           <Button id="new-quote" variant="contained" onClick={handleNewQuote}>New Quote</Button>
       </CardActions>
-    </Card>
+      </Card>
   );
 }
 

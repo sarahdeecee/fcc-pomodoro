@@ -6,9 +6,10 @@ function Quote(props) {
   const { quote, character, anime } = props.quote;
   return (
     <CardContent>
-      <Typography variant="h4" id="text">"{quote}"</Typography>
+      <Typography variant="h4" component="h1" id="text">"{quote}"</Typography>
+      <p></p>
       <div align="right">
-        <Typography vaiant="h5" id="author">- {character} ({anime})</Typography>
+        <Typography vaiant="h5" component="p" id="author">- {character} ({anime})</Typography>
       </div>
     </CardContent>
   )
