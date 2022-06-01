@@ -1,10 +1,10 @@
 import './App.css';
-import Quote from './pages/Quote'
+import QuoteBox from './pages/QuoteBox'
 
 function App() {
   return (
     <div className="App">
-      <Quote />
+      <QuoteBox />
     </div>
   );
 }

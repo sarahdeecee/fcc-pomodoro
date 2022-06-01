@@ -1,14 +1,36 @@
 import * as React from 'react';
-import Quote from './Quote'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import Quote from './Quote';
 
 function QuoteBox() {
-  const [quote, setQuote] = useState({});
+  const [quote, setQuotes] = useState({});
+  const [newQuote, setNewQuote] = useState(false);
+
+  useEffect(() => {
+    setNewQuote(false);
+    fetch("https://animechan.vercel.app/api/random")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setQuotes(result);
+          console.log(result);
+        },
+        (error) => {
+          console.log('Error >>>>> ',error);
+        }
+      )
+  }, [newQuote])
+
+  // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  const handleNewQuote = () => {
+    setNewQuote(true);
+  }
 
   return (
     <div id="quote-box">
-      <Quote />
-      <button id="new-quote">New Quote</button>
+      {quote.quote ? <Quote quote={quote} /> : ''}
+      <button id="new-quote" onClick={handleNewQuote}>New Quote</button>
       <a href="https://twitter.com/intent/tweet">
         <button id="tweet-quote">Tweet</button>
       </a>
