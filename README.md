@@ -16,6 +16,7 @@ Projects for freeCodeCamp's [Front End Development Libraries certification](http
 - [CodePen.io link](https://codepen.io/s_dc/pen/oNEdbBJ)
 - [Original instructions](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine)
 - Stack: JavaScript, React, HTML, CSS, Material UI
+- Quotes provided by [Animechan](https://animechan.vercel.app/)
 
 ### Build a Markdown Previewer
 
