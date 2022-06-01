@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import Quote from './Quote';
+import { Button } from '@mui/material';
+import { Twitter } from '@mui/icons-material'
 
 function QuoteBox() {
   const [quote, setQuotes] = useState({});
@@ -30,9 +32,9 @@ function QuoteBox() {
   return (
     <div id="quote-box">
       {quote.quote ? <Quote quote={quote} /> : ''}
-      <button id="new-quote" onClick={handleNewQuote}>New Quote</button>
+      <Button id="new-quote" onClick={handleNewQuote}>New Quote</Button>
       <a href="https://twitter.com/intent/tweet">
-        <button id="tweet-quote">Tweet</button>
+        <Twitter id="tweet-quote" />
       </a>
     </div>
   );
