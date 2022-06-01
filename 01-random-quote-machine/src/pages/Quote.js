@@ -1,6 +1,5 @@
 import { Typography, CardContent } from '@mui/material';
 import * as React from 'react';
-import {useState, useEffect} from 'react';
 
 function Quote(props) {
   const { quote, character, anime } = props.quote;

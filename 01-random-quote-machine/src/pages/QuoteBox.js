@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import Quote from './Quote';
-import { Paper, Button, Card, CardActions, Typography, IconButton, Box } from '@mui/material';
-import { Twitter, Facebook } from '@mui/icons-material'
+import { Button, Card, CardActions, IconButton, Box } from '@mui/material';
+import { Twitter } from '@mui/icons-material'
 
 function QuoteBox() {
   const [quote, setQuotes] = useState({});
@@ -27,27 +27,25 @@ function QuoteBox() {
     setNewQuote(true);
   }
 
-  const TITLE = 'Random%20anime%20quotes';
-  const SUMMARY = 'Random%20anime%20quotes';
-  const URL = 'http%3A%2F%2Flocalhost:3000';
-  const IMGURL = 'http%3A%2F%2Fsekainojump.com/wp-content/uploads/2022/05/FSuXvPIUcAAZC0v.jpg';
+  const TWITTER_URL = 'https://twitter.com/intent/tweet?hashtags=quotes,anime,freeCodeCamp&text=' + encodeURIComponent(`"${quote.quote} - ${quote.character} (${quote.anime})`);
+
   return (
-      <Card sx={{padding: '1em'}} id="quote-box">
+      <Card sx={{margin: '3em', padding: '1em'}} id="quote-box">
       {quote.quote ? <Quote quote={quote} /> : ''}
       <CardActions sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Box>
-          <a href="https://twitter.com/intent/tweet">
+          Share: <a href={TWITTER_URL}>
             <IconButton color="primary" id="tweet-quote" component="span" aria-label="Post on Twitter" variant="contained">
               <Twitter />
             </IconButton>
           </a>
-          <a href={`http://www.facebook.com/sharer.php?s=100&p[title]=${TITLE}&p[url]=${URL}&p[summary]=${SUMMARY}&p[images][0]=${IMGURL}`}>
-            <IconButton color="primary" id="fb-quote" component="span" aria-label="Post on Facebook" variant="contained">
-              <Facebook />
-            </IconButton>
-          </a>
         </Box>
-          <Button id="new-quote" variant="contained" onClick={handleNewQuote}>New Quote</Button>
+        <Button id="new-quote" variant="contained"
+          onClick={handleNewQuote}
+          style={{
+            backgroundColor: "#203A43",
+            fontWeight: "700"
+        }}>New Quote</Button>
       </CardActions>
       </Card>
   );
