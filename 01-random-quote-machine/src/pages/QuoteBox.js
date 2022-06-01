@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import Quote from './Quote';
-import { Button } from '@mui/material';
-import { Twitter } from '@mui/icons-material'
+import { Button, Card, CardActions, Typography, IconButton, Box } from '@mui/material';
+import { Twitter, Facebook } from '@mui/icons-material'
 
 function QuoteBox() {
   const [quote, setQuotes] = useState({});
@@ -30,13 +30,24 @@ function QuoteBox() {
   }
 
   return (
-    <div id="quote-box">
+    <Card id="quote-box" sx={{padding: '1em'}}>
       {quote.quote ? <Quote quote={quote} /> : ''}
-      <Button id="new-quote" onClick={handleNewQuote}>New Quote</Button>
-      <a href="https://twitter.com/intent/tweet">
-        <Twitter id="tweet-quote" />
-      </a>
-    </div>
+      <CardActions sx={{display: 'flex', justifyContent: 'space-between'}}>
+        <Box>
+          <a href="https://twitter.com/intent/tweet">
+            <IconButton color="primary" id="tweet-quote" component="span" aria-label="Post on Twitter" variant="contained">
+              <Twitter />
+            </IconButton>
+          </a>
+          <a href="#">
+            <IconButton color="primary" id="fb-quote" component="span" aria-label="Post on Facebook" variant="contained">
+              <Facebook />
+            </IconButton>
+          </a>
+        </Box>
+          <Button id="new-quote" variant="contained" onClick={handleNewQuote}>New Quote</Button>
+      </CardActions>
+    </Card>
   );
 }
 
