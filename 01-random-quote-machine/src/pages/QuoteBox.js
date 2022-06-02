@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import Quote from './Quote';
-import { Button, Card, CardActions, IconButton, Box } from '@mui/material';
+import { Button, Card, CardActions, IconButton, Box, Skeleton } from '@mui/material';
 import { Twitter } from '@mui/icons-material'
 
 function QuoteBox() {
@@ -33,8 +33,8 @@ function QuoteBox() {
 
   return (
     <>
-      {quote.quote &&
-        <Card sx={{margin: '3em'}} id="quote-box">
+      {quote.quote ?
+        <Card id="quote-box">
           <Quote quote={quote} />
           <CardActions sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Box>
@@ -52,8 +52,9 @@ function QuoteBox() {
             }}>New Quote</Button>
           </CardActions>
         </Card>
+      : <Skeleton sx={{ bgcolor: 'white.900' }} variant="rectangular" id="quote-load" />
       }
-    </>
+      </>
   );
 }
 

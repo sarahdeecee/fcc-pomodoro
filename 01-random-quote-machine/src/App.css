@@ -9,11 +9,19 @@
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#quote-box {
+#quote-box, #quote-load {
+  margin: 3em;
   width: 60%;
   max-width: 1000px;
   background: rgb(255,255,255);
 background: linear-gradient(0deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 100%);
+}
+
+#quote-load {
+  width: 60%;
+  max-width: 1000px;
+  height: 13em;
+  border-radius: 0.3em;
 }
 
 .MuiButton-root {
