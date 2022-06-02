@@ -9,18 +9,20 @@ function QuoteBox() {
   const [newQuote, setNewQuote] = useState(false);
 
   useEffect(() => {
-    setNewQuote(false);
-    fetch("https://animechan.vercel.app/api/random")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setQuotes(result);
-          console.log(result);
-        },
-        (error) => {
-          console.log('Error >>>>> ',error);
-        }
-      )
+    if (newQuote) {
+      setNewQuote(false);
+      fetch("https://animechan.vercel.app/api/random")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            setQuotes(result);
+            console.log(result);
+          },
+          (error) => {
+            console.log('Error >>>>> ',error);
+          }
+        )
+    }
   }, [newQuote])
 
   const handleNewQuote = () => {
