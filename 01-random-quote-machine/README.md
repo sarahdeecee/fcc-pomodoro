@@ -3,6 +3,7 @@
 ## About
 This application shows a random quote from an anime, along with the character and the series title.
 The quote can be easily shared on Twitter.
+![Screenshot of the application](./public/screenshot.jpeg)
 
 ## Instructions
 Create a CodePen.io app that passes all tests and fulfills the listed user stories.
