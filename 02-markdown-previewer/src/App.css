@@ -23,7 +23,7 @@
   border: 0;
   border-radius: 10px;
   overflow-y: scroll;
-  resize: horizontal;
+  resize: none;
   font-size: 1em;
 }
 
