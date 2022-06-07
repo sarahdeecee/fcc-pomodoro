@@ -9,9 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Editor:</h1>
       <Editor editorText={editorText} setEditorText={setEditorText} />
-      <h1>Preview:</h1>
       <Preview editorText={editorText} />
     </div>
   );

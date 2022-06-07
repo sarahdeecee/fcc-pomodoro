@@ -1,13 +1,44 @@
 .App {
+  display: flex;
+  flex-direction: row;
+  /* padding: 2.5vh; */
+  height: 100vh;
   text-align: center;
-  padding: 1em;
+  background-color: #10314a;
+  color: #ffeeee;
+  font-size: 1.5em;
 }
 
 #editor {
-  width: 100%;
-  height: 10em;
+  width: 40%;
+  background: #628bbd;
+  color: #ffeeee;
+  border: 0;
+  overflow-y: scroll;
+  font-size: 1em;
 }
 
 #preview {
+  width: 60%;
+  margin-left: 1em;
   text-align: start;
+  background-color: #10314a;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 800px) {  
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+  #editor {
+    width: 100%;
+    height: 10em;
+    border: 0;
+  }
+
+  #preview {
+    text-align: start;
+    width: 100%;
+  }
 }
