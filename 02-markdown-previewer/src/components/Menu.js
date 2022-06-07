@@ -11,7 +11,7 @@ function Menu(props) {
 
   return (
     <div>
-      <button onClick={handleOrientation}>{(menu.orientation === 'horizontal') ? 'Vertical' : 'Horizontal'}</button>
+      <button onClick={handleOrientation}>{(menu.orientation === 'horizontal') ? <i class="fa-solid fa-up-down"></i> : <i class="fa-solid fa-left-right"></i>}</button>
       <button onClick={handleTheme}>{(menu.theme === 'light') ? 'Dark Mode' : 'Light Mode'}</button>
     </div>
   );
