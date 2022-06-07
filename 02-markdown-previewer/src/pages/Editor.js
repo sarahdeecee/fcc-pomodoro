@@ -2,7 +2,7 @@
 function Editor(props) {
   const { editorText, setEditorText } = props;
   const handleChange = e => {
-    setEditorText(e.target.value);
+    setEditorText((e.target.value).toString());
   }
 
   return (
