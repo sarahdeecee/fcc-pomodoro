@@ -1,14 +1,11 @@
 import { marked } from 'marked';
 
 function Preview(props) {
-  const {editorText, setEditorText} = props;
-  const parsedText = marked.parse('# Marked in Node.js');
+  const {editorText} = props;
 
   return (
     <div id="preview">
-      <p>
-        {parsedText}
-      </p>
+      {marked.parseInline(editorText)}
     </div>
   );
 }
