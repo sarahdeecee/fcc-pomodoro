@@ -27,6 +27,7 @@ const sayHello = name => {
 - **Marked**: https://github.com/markedjs/marked/
 - **Markdown**: http://daringfireball.net/projects/markdown/
 - Made by **Sarah Dela Cruz**
+
 ![Sarah Dela Cruz's GitHub](https://github.com/sarahdeecee/sarahdeecee/raw/main/data/profile-banner.png)`);
   const [menu, setMenu] = useState({
     orientation: 'horizontal',
