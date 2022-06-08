@@ -13,10 +13,15 @@
   padding: 1rem;
 }
 
+#menubar {
+  padding-top: 1rem;
+}
+
 .menu {
   width: 2em;
   height: 2em;
   font-size: 1em;
+  margin: 0 1em;
 }
 
 #editor {
