@@ -28,7 +28,7 @@
   --orientation-margin-vertical: 0.5rem;
 }
 
-.App {
+.App, html {
   background: var(--theme-page-background);
   color: var(--theme-page-text);
 }
