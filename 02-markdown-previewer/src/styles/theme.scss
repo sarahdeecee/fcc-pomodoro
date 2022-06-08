@@ -18,13 +18,11 @@
 
 .horizontal {
   --orientation-width: 50%;
-  --orientation-height: 100%;
   --orientation-direction: row;
   --orientation-margin-horizontal: 0.5rem;
 }
 
 .vertical {
-  --orientation-width: 100%;
   --orientation-height: 50%;
   --orientation-direction: column;
   --orientation-margin-vertical: 0.5rem;
@@ -54,6 +52,12 @@
     display: block;
     max-width: 90%;
     margin: 2rem auto;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 2px solid var(--theme-page-text);
   }
 }
 
