@@ -21,17 +21,20 @@ function DrumMachine(props) {
     { sound: 'wakuwaku',
       keypress: 'A', 
       file: '../../wakuwaku.mp3',
-      picture: '../../wakuwaku.png'
+      picture: '../../wakuwaku2.png'
     }
   ];
+
+  function playAudio(url) {
+    new Audio(url).play();
+  }
+
   const drumPads = samples.map(sample => 
       <ImageListItem key={sample.sound}>
         <DrumPad
           key={sample.sound}
-          sound={sample.sound}
-          keypress={sample.keypress}
-          file={sample.file}
-          picture={sample.picture}  
+          {...sample} 
+          playAudio={playAudio}
         />
       </ImageListItem>
   );
