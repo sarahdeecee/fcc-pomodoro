@@ -1,18 +1,45 @@
-import { Grid } from "@mui/material";
+import { ImageList, ImageListItem} from "@mui/material";
 import DrumPad from "./DrumPad";
 
 function DrumMachine(props) {
-  const samples = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+  const samples = [
+    { sound: 'ui',
+      keypress: 'Q', 
+      file: '../../ui.mp3',
+      picture: '../../ui.png'
+    },
+    { sound: 'bakudan bakudan',
+      keypress: 'W', 
+      file: '../../bakudanbakudan.mp3',
+      picture: '../../bakudan.png'
+    },
+    { sound: 'peanuts',
+      keypress: 'E', 
+      file: '../../peanuts.mp3',
+      picture: '../../peanuts.png'
+    },
+    { sound: 'wakuwaku',
+      keypress: 'A', 
+      file: '../../wakuwaku.mp3',
+      picture: '../../wakuwaku.png'
+    }
+  ];
   const drumPads = samples.map(sample => 
-    <Grid item xs={4} key={sample}>
-      <DrumPad key={sample} sample={sample} />
-    </Grid>
+      <ImageListItem key={sample.sound}>
+        <DrumPad
+          key={sample.sound}
+          sound={sample.sound}
+          keypress={sample.keypress}
+          file={sample.file}
+          picture={sample.picture}  
+        />
+      </ImageListItem>
   );
   return (
     <div className="DrumMachine">
-      <Grid container>
+      <ImageList cols={3}>
         {drumPads}
-      </Grid>
+      </ImageList>
     </div>
   );
 }

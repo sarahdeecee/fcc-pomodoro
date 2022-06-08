@@ -1,9 +1,12 @@
-import { Button } from "@mui/material";
 
 function DrumPad(props) {
-  const {sample} = props;
+  const {sound, keypress, file, picture} = props;
   return (
-    <Button onClick={() => console.log(sample)}>{sample}</Button>
+    <img 
+      src={`${picture}`}
+      srcSet={`${picture}`}
+      onClick={() => console.log(picture)}
+    />
   );
 }
 
