@@ -1,7 +1,9 @@
-import { ImageList, ImageListItem} from "@mui/material";
+import { ImageList, ImageListItem, stepLabelClasses} from "@mui/material";
 import DrumPad from "./DrumPad";
+import {useState} from 'react';
 
 function DrumMachine(props) {
+  const [keyPress, setKeyPress] = useState('');
   const samples = [
     { sound: 'ui',
       keypress: 'Q', 
@@ -29,6 +31,12 @@ function DrumMachine(props) {
     new Audio(url).play();
   }
 
+  const handleKeyPress = e => {
+    console.log(e.key);
+    const filteredSample = samples.filter(sample => sample.keypress.toLowerCase() === e.key)[0];
+    playAudio(filteredSample.file);
+  }
+
   const drumPads = samples.map(sample => 
       <ImageListItem key={sample.sound}>
         <DrumPad
@@ -39,7 +47,7 @@ function DrumMachine(props) {
       </ImageListItem>
   );
   return (
-    <div className="DrumMachine">
+    <div className="DrumMachine" onKeyDown={handleKeyPress} tabIndex={0}>
       <ImageList cols={3}>
         {drumPads}
       </ImageList>
