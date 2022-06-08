@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/theme.scss';
 import * as React from 'react';
 import {useState} from 'react';
 import Editor from './components/Editor';
@@ -13,7 +14,7 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <div className={`App ${menu.theme} ${menu.orientation}`}>
       <Menu menu={menu} setMenu={setMenu} />
       <div className="container">
         <Editor editorText={editorText} setEditorText={setEditorText} />

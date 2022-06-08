@@ -1,0 +1,53 @@
+.light {
+  --theme-color: #ffcdcd;
+  --theme-content-background: #fff;
+  --theme-page-background: #628bbd;
+  --theme-page-text: #10314a;
+}
+
+.dark {
+  --theme-color: #bd4a73;
+  --theme-content-background: #10314a;
+  --theme-page-background: #101010;
+  --theme-page-text: #ffeeee;
+}
+
+.horizontal {
+  --orientation-width: 50%;
+  --orientation-height: 100%;
+  --orientation-direction: row;
+  --orientation-margin-horizontal: 0.5rem;
+}
+
+.vertical {
+  --orientation-width: 100%;
+  --orientation-height: 50%;
+  --orientation-direction: column;
+  --orientation-margin-vertical: 0.5rem;
+}
+
+.App {
+  background: var(--theme-page-background);
+  color: var(--theme-page-text);
+}
+
+.container {
+  flex-direction: var(--orientation-direction);
+}
+
+#preview, #editor {
+  background: var(--theme-content-background);
+  color: var(--theme-page-text);
+  height: var(--orientation-height);
+  width: var(--orientation-width);
+}
+
+#preview {
+  margin-left: var(--orientation-margin-horizontal);
+  margin-top: var(--orientation-margin-vertical);
+}
+
+#editor {
+  margin-bottom: var(--orientation-margin-vertical);
+  margin-right: var(--orientation-margin-horizontal);
+}
