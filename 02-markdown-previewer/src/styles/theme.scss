@@ -3,13 +3,15 @@
   --theme-content-background: #fff;
   --theme-page-background: #DAEAF1;
   --theme-page-text: #10314a;
+  --theme-text-link: #bd4a73;
 }
 
 .dark {
-  --theme-color: #bd4a73;
-  --theme-content-background: #1c1f2c;
+  --theme-color: #133a57;
+  --theme-content-background: #15222e;
   --theme-page-background: #101010;
   --theme-page-text: #ffacb4;
+  --theme-text-link: #bd4a73;
 }
 
 .horizontal {
@@ -50,4 +52,12 @@
 #editor {
   margin-bottom: var(--orientation-margin-vertical);
   margin-right: var(--orientation-margin-horizontal);
+}
+
+code {
+  background-color: var(--theme-color);
+}
+
+a {
+  color: var(--theme-text-link);
 }
