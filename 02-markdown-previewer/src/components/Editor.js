@@ -6,7 +6,7 @@ function Editor(props) {
   }
 
   return (
-    <textarea id="editor" onChange={handleChange}></textarea>
+    <textarea id="editor" onChange={handleChange}>{editorText}</textarea>
   );
 }
 
