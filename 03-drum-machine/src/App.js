@@ -1,7 +1,7 @@
 import './App.css';
 import DrumMachine from './components/DrumMachine';
 import Menu from './components/Menu';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [sample, setSample] = useState({});
@@ -13,6 +13,14 @@ function App() {
   function playAudio(url) {
     new Audio(url).play();
   }
+
+  useEffect(() => {
+    document.body.addEventListener('keydown', handleKeyPress );
+
+    return function cleanup() {
+        window.removeEventListener('keydown', handleKeyPress );
+    } 
+  },[]);
 
   const samples = [
     { english: 'wakuwaku...!',
@@ -80,7 +88,7 @@ function App() {
   }
 
   return (
-    <div className="App" onKeyDown={handleKeyPress}>
+    <div className="App">
       <Menu theme={theme} setTheme={setTheme} />
       <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} />
     </div>
