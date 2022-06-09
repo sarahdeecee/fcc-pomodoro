@@ -3,7 +3,7 @@ import DrumPad from "./DrumPad";
 import Display from "./Display";
 
 function DrumMachine(props) {
-  const {sample, setSample, playAudio, samples, handleKeyPress} = props;
+  const {sample, setSample, playAudio, samples, handleKeyPress, theme} = props;
   
   const drumPads = samples.map(sample => 
       <ImageListItem key={sample.english} className="drum-pad">
@@ -15,7 +15,7 @@ function DrumMachine(props) {
         />
         <ImageListItemBar
           key={`bar-${sample.english}`}
-          title={sample.english}
+          title={sample[theme.language]}
           position='below'
           className="drum-action"
         />
@@ -23,7 +23,7 @@ function DrumMachine(props) {
   );
   return (
     <div className="DrumMachine" tabIndex={0}>
-      <Display sample={sample} />
+      <Display {...sample} theme={theme} />
       <ImageList cols={3}>
         {drumPads}
       </ImageList>

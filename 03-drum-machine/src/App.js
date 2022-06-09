@@ -1,9 +1,15 @@
 import './App.css';
 import DrumMachine from './components/DrumMachine';
+import Menu from './components/Menu';
 import { useState } from "react";
 
 function App() {
   const [sample, setSample] = useState({});
+  const [theme, setTheme] = useState({
+    mode: 'light',
+    language: 'english'
+  });
+
   function playAudio(url) {
     new Audio(url).play();
   }
@@ -12,7 +18,7 @@ function App() {
     { english: 'wakuwaku...!',
       japanese: 'ワクワク...!',
       keypress: 'q', 
-      file: 'https://github.com/sarahdeecee/fcc-development-libraries-projects/raw/main/03-drum-machine/public/wakuwaku1.mp3',
+      file: '../../wakuwaku1.mp3',
       picture: '../../wakuwaku1.png'
     },
     { english: 'ui',
@@ -75,7 +81,8 @@ function App() {
 
   return (
     <div className="App" onKeyDown={handleKeyPress}>
-      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} />
+      <Menu theme={theme} setTheme={setTheme} />
+      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} />
     </div>
   );
 }
