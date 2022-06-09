@@ -1,17 +1,17 @@
 import { Badge } from "@mui/material";
 
 function DrumPad(props) {
-  const {sound, keypress, file, picture} = props;
+  const {english, japanese, keypress, file, picture} = props;
   const {playAudio, setSample} = props;
 
   const clickPicture = () => {
-    setSample({sound, keypress, file, picture});
+    setSample({english, japanese, keypress, file, picture});
     playAudio(file);
   }
   return (
     <Badge color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
       <img 
-        id={sound}
+        id={english}
         src={picture}
         srcSet={picture}
         onClick={clickPicture}

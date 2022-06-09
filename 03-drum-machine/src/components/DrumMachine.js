@@ -6,15 +6,16 @@ function DrumMachine(props) {
   const {sample, setSample, playAudio, samples, handleKeyPress} = props;
   
   const drumPads = samples.map(sample => 
-      <ImageListItem key={sample.sound} className="drum-pad">
+      <ImageListItem key={sample.english} className="drum-pad">
         <DrumPad
-          key={sample.sound}
+          key={sample.keypress}
           {...sample} 
           playAudio={playAudio}
           setSample={setSample}
         />
         <ImageListItemBar
-          title={sample.sound}
+          key={`bar-${sample.english}`}
+          title={sample.english}
           position='below'
           className="drum-action"
         />
