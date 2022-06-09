@@ -7,7 +7,7 @@
 
 .dark {
   --theme-color: #487962;
-  --theme-page-background: #1c1f1d;
+  --theme-page-background: #1d2720;
   --theme-border: #487962;
   --theme-accent: #487962;
 }
@@ -22,6 +22,14 @@ span.MuiBadge-colorSecondary {
   color: var(theme-color);
 }
 
+button.Mui-ButtonBase {
+  color: #000;
+}
+
 img {
   border: 2px solid var(--theme-border);
+}
+
+#menu {
+  background: var(--theme-border);
 }
