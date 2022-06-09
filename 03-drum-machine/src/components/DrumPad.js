@@ -1,3 +1,4 @@
+import { Badge } from "@mui/material";
 
 function DrumPad(props) {
   const {sound, keypress, file, picture} = props;
@@ -8,11 +9,14 @@ function DrumPad(props) {
     playAudio(file);
   }
   return (
-    <img 
-      src={picture}
-      srcSet={picture}
-      onClick={clickPicture}
-    />
+    <Badge sx={{ color: '#fff'}} color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
+      <img 
+        id={sound}
+        src={picture}
+        srcSet={picture}
+        onClick={clickPicture}
+      />
+    </Badge>
   );
 }
 

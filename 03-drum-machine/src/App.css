@@ -4,10 +4,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #FFB3AF;
 }
 
 img {
   height: 200px;
   width: 200px;
   border-radius: 10px;
+  border: 2px solid white;
+}
+
+.drum-action {
+  display: flex;
+  justify-content: space-between;
 }
