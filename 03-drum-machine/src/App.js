@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/theme.scss';
 import DrumMachine from './components/DrumMachine';
 import Menu from './components/Menu';
 import { useState, useEffect } from "react";
@@ -111,7 +112,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${theme.mode}`}>
       <Menu theme={theme} setTheme={setTheme} />
       <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} />
     </div>
