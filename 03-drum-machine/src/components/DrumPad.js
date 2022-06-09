@@ -9,7 +9,7 @@ function DrumPad(props) {
     playAudio(file);
   }
   return (
-    <Badge sx={{ color: '#fff'}} color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
+    <Badge color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
       <img 
         id={sound}
         src={picture}

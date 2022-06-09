@@ -21,7 +21,7 @@ function DrumMachine(props) {
       </ImageListItem>
   );
   return (
-    <div className="DrumMachine" onKeyDown={handleKeyPress} tabIndex={0}>
+    <div className="DrumMachine" tabIndex={0}>
       <Display sample={sample} />
       <ImageList cols={3}>
         {drumPads}

@@ -18,3 +18,9 @@ img {
   display: flex;
   justify-content: space-between;
 }
+
+span.MuiBadge-colorSecondary {
+  background-color: #fff;
+  color: #000;
+  font-size: large;
+}
