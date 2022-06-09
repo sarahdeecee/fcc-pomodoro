@@ -15,9 +15,13 @@ img {
   border: 2px solid white;
 }
 
+#display {
+  height: 2rem;
+}
+
 .drum-action {
-  display: flex;
-  justify-content: space-between;
+  width: 200px;
+  height: 2rem;
 }
 
 span.MuiBadge-colorSecondary {
