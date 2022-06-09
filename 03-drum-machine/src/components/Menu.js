@@ -1,18 +1,20 @@
-import { Button } from "@mui/material";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 function Menu(props) {
   const {theme, setTheme} = props;
-  const handleTheme = () => {
-    if (theme.language === 'english') {
-      setTheme({...theme, language: 'japanese'});
-    } else {
-      setTheme({...theme, language: 'english'});
-    }
+  const handleTheme = e => {
+    setTheme({...theme, language: e.target.value});
   }
   return (
-    <Button onClick={handleTheme}>
-      {(theme.language === 'english') ? 'Japanese' : 'English'}
-    </Button>
+    <ToggleButtonGroup
+      color="primary"
+      value={theme.language}
+      exclusive
+      onChange={handleTheme}>
+      <ToggleButton value="english">English</ToggleButton>
+      <ToggleButton value="romaji">Romaji</ToggleButton>
+      <ToggleButton value="japanese">Japanese</ToggleButton>
+    </ToggleButtonGroup>
   );
 }
 

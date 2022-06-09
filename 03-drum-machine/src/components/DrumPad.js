@@ -1,11 +1,11 @@
 import { Badge } from "@mui/material";
 
 function DrumPad(props) {
-  const {english, japanese, keypress, file, picture} = props;
+  const {english, romaji, japanese, keypress, file, picture} = props;
   const {playAudio, setSample} = props;
 
   const clickPicture = () => {
-    setSample({english, japanese, keypress, file, picture});
+    setSample({english, romaji, japanese, keypress, file, picture});
     playAudio(file);
   }
   return (

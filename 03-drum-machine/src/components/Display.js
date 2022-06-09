@@ -1,9 +1,9 @@
 
 function Display(props) {
-  const {english, japanese, keypress, file, picture, theme} = props;
-  const line = (theme.language === 'english') ? english : japanese;
+  const {english, romaji, japanese, keypress, file, picture, theme} = props;
+  const sample = {english, romaji, japanese};
   return (
-    <h1 id="sound-header">{english ? line : 'Anya'}</h1>
+    <h1 id="sound-header">{sample[theme.language]}</h1>
   );
 }
 

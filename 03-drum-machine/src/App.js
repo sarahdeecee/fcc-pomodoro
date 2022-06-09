@@ -23,55 +23,64 @@ function App() {
   },[]);
 
   const samples = [
-    { english: 'wakuwaku...!',
+    { english: 'So exciting...!',
+      romaji: 'wakuwaku...!',
       japanese: 'ワクワク...!',
       keypress: 'q', 
       file: '../../wakuwaku1.mp3',
       picture: '../../wakuwaku1.png'
     },
-    { english: 'ui',
+    { english: 'K',
+      romaji: 'ui',
       japanese: 'うい',
       keypress: 'w', 
       file: '../../ui.mp3',
       picture: '../../ui.png'
     },
-    { english: 'bakudan bakudan!',
+    { english: 'Bomby bomb, bomby bomb!',
+      romaji: 'bakudan bakudan!',
       japanese: '爆弾、爆弾！',
       keypress: 'e', 
       file: '../../bakudanbakudan.mp3',
       picture: '../../bakudan.png'
     },
     { english: 'Peanuts!',
+      romaji: 'Peanuts!',
       japanese: 'ピーナッツ！',
       keypress: 'a', 
       file: '../../peanuts.mp3',
       picture: '../../peanuts.png'
     },
-    { english: 'wa~kuwaku',
+    { english: 'So exciting!',
+      romaji: 'wa~kuwaku',
       japanese: 'ワ〜クワク',
       keypress: 's', 
       file: '../../wakuwaku2.mp3',
       picture: '../../wakuwaku2.png'
     },
-    { english: 'WAKUWAKU',
+    { english: 'SO EXCITING!',
+      romaji: 'WAKUWAKU',
       japanese: 'ワクワク！！',
       keypress: 'd', 
       file: '../../wakuwaku3.mp3',
       picture: '../../wakuwaku3.png'
     },
     { english: 'Ah~',
+      romaji: 'Ah~',
       japanese: 'あ〜',
       keypress: 'z', 
       file: '../../aa.mp3',
       picture: '../../aa.png'
     },
-    { english: 'Anya, haha inakute samishii',
+    { english: 'Anya is lonely without a mother~',
+      romaji: 'Anya, haha inakute samishii',
       japanese: 'アーニャ、母いなくて寂しい',
       keypress: 'x', 
       file: '../../hahainakutesamishii.mp3',
       picture: '../../hahainakutesamishii.png'
     },
-    { english: 'Haha no sonzai koishii',
+    { english: 'Anya longs for a mother~',
+      romaji: 'Haha no sonzai koishii',
       japanese: '母の存在恋しい',
       keypress: 'c', 
       file: '../../hahanosonzaikoishii.mp3',
@@ -80,7 +89,7 @@ function App() {
   ];
 
   const handleKeyPress = e => {
-    const filteredSample = samples.find(sample => sample.keypress.toLowerCase() === e.key);
+    const filteredSample = samples.find(sample => sample.keypress.toLowerCase() === e.key.toLowerCase());
     if (filteredSample) {
       setSample(filteredSample);
       playAudio(filteredSample.file);
