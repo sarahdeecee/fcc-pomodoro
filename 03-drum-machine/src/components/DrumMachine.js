@@ -24,7 +24,7 @@ function DrumMachine(props) {
   return (
     <div className="DrumMachine" tabIndex={0}>
       <Display {...sample} theme={theme} />
-      <ImageList cols={3}>
+      <ImageList cols={4}>
         {drumPads}
       </ImageList>
     </div>
