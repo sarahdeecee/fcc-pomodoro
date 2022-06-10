@@ -1,9 +1,9 @@
-import { ImageList, ImageListItem, ImageListItemBar, IconButton, Avatar } from "@mui/material";
+import { ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import DrumPad from "./DrumPad";
 import Display from "./Display";
 
 function DrumMachine(props) {
-  const {sample, setSample, playAudio, samples, handleKeyPress, theme, showTransition, setShowTransition} = props;
+  const {sample, setSample, playAudio, samples, theme, showTransition, setShowTransition} = props;
   
   const drumPads = samples.map(sample => 
       <ImageListItem key={sample.english} className="drum-pad">

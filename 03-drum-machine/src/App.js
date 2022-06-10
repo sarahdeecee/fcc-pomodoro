@@ -19,13 +19,13 @@ function App() {
     new Audio(url).play();
   }
 
-  useEffect(() => {
-    document.body.addEventListener('keydown', handleKeyPress );
+  // useEffect(() => {
+  //   document.body.addEventListener('keydown', handleKeyPress );
 
-    return function cleanup() {
-        window.removeEventListener('keydown', handleKeyPress );
-    } 
-  },[]);
+  //   return function cleanup() {
+  //       window.removeEventListener('keydown', handleKeyPress );
+  //   } 
+  // },[]);
 
   const samples = [
     { english: 'So exciting...!',
@@ -108,6 +108,7 @@ function App() {
   ];
 
   const handleKeyPress = e => {
+    console.log(e.key);
     setShowTransition({...showTransition, display: !showTransition.display});
     const filteredSample = samples.find(sample => sample.keypress.toLowerCase() === e.key.toLowerCase());
     if (filteredSample) {

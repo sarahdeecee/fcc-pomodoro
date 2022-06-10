@@ -18,6 +18,7 @@ function DrumPad(props) {
           id={keypress}
           src={picture}
           srcSet={picture}
+          alt={english}
           onClick={clickPicture}
         />
       </Badge>

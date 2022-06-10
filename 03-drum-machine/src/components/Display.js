@@ -1,6 +1,6 @@
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 function Display(props) {
-  const {english, romaji, japanese, keypress, file, picture, theme, showTransition, setShowTransition } = props;
+  const {english, romaji, japanese, theme, showTransition } = props;
   const sample = {english, romaji, japanese};
   return (
     <SwitchTransition>
