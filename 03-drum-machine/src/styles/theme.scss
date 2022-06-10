@@ -1,15 +1,17 @@
 .light {
   --theme-color: #000;
-  --theme-page-background: #FFB3AF;
+  --theme-page-background: #ffd8d6;
   --theme-border: #fff;
-  --theme-accent: #A76562;
+  --theme-accent-light: #FFB3AF;
+  --theme-accent-dark: #A76562;
 }
 
 .dark {
-  --theme-color: #8ec9ae;
+  --theme-color: #d3ede1;
   --theme-page-background: #1d2720;
   --theme-border: #487962;
-  --theme-accent: #487962;
+  --theme-accent-light: #487962;
+  --theme-accent-dark: #1d2720;
 }
 
 .App {
@@ -18,12 +20,13 @@
 }
 
 span.MuiBadge-colorSecondary {
-  background-color: var(--theme-accent);
-  color: var(theme-color);
+  background-color: var(--theme-accent-dark);
 }
-
-button.Mui-ButtonBase {
-  color: #000;
+.MuiButtonBase-root.MuiToggleButton-root.Mui-selected {
+  color: var(--theme-color);
+}
+.MuiButtonBase-root.MuiToggleButton-root {
+  color: var(--theme-accent-dark);
 }
 
 img {
@@ -31,5 +34,5 @@ img {
 }
 
 #menu {
-  background: var(--theme-border);
+  background: var(--theme-accent-light);
 }
