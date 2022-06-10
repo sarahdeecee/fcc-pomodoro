@@ -1,4 +1,5 @@
 import { Badge } from "@mui/material";
+import { CSSTransition } from "react-transition-group";
 
 function DrumPad(props) {
   const {english, romaji, japanese, keypress, file, picture, showTransition, setShowTransition} = props;
@@ -11,14 +12,16 @@ function DrumPad(props) {
     setShowTransition({...showTransition, display: !showTransition.display});
   }
   return (
-    <Badge color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
-      <img 
-        id={keypress}
-        src={picture}
-        srcSet={picture}
-        onClick={clickPicture}
-      />
-    </Badge>
+    <CSSTransition timeout={50}>
+      <Badge color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
+        <img 
+          id={keypress}
+          src={picture}
+          srcSet={picture}
+          onClick={clickPicture}
+        />
+      </Badge>
+    </CSSTransition>
   );
 }
 

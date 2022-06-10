@@ -108,6 +108,7 @@ function App() {
   ];
 
   const handleKeyPress = e => {
+    setShowTransition({...showTransition, display: !showTransition.display});
     const filteredSample = samples.find(sample => sample.keypress.toLowerCase() === e.key.toLowerCase());
     if (filteredSample) {
       setSample(filteredSample);
