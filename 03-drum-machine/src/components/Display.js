@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 function Display(props) {
   const {english, romaji, japanese, theme, showTransition } = props;
@@ -10,7 +11,7 @@ function Display(props) {
           node.addEventListener("transitionend", done, false);
         }}
         >
-        <h1 id="display">{sample[theme.language]}</h1>
+        <Typography variant="h3" component="h1" id="display">{sample[theme.language]}</Typography>
       </CSSTransition>
     </SwitchTransition>
   );
