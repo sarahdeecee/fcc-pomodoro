@@ -10,6 +10,7 @@ function App() {
     mode: 'light',
     language: 'english'
   });
+  const [showDisplay, setShowDisplay] = useState(false);
 
   function playAudio(url) {
     new Audio(url).play();
@@ -31,7 +32,7 @@ function App() {
       file: '../../wakuwaku1.mp3',
       picture: '../../wakuwaku1.png'
     },
-    { english: 'K',
+    { english: 'K!',
       romaji: 'ui',
       japanese: 'うい',
       keypress: 'w', 
@@ -114,7 +115,7 @@ function App() {
   return (
     <div className={`App ${theme.mode}`}>
       <Menu theme={theme} setTheme={setTheme} />
-      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} />
+      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} showDisplay={showDisplay} setShowDisplay={setShowDisplay} />
     </div>
   );
 }
