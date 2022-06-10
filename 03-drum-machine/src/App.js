@@ -10,7 +10,10 @@ function App() {
     mode: 'light',
     language: 'english'
   });
-  const [showDisplay, setShowDisplay] = useState(false);
+  const [showTransition, setShowTransition] = useState({
+    display: false,
+    button: false
+  });
 
   function playAudio(url) {
     new Audio(url).play();
@@ -115,7 +118,7 @@ function App() {
   return (
     <div className={`App ${theme.mode}`}>
       <Menu theme={theme} setTheme={setTheme} />
-      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} showDisplay={showDisplay} setShowDisplay={setShowDisplay} />
+      <DrumMachine sample={sample} setSample={setSample} samples={samples} playAudio={playAudio} handleKeyPress={handleKeyPress} theme={theme} showTransition={showTransition} setShowTransition={setShowTransition} />
     </div>
   );
 }

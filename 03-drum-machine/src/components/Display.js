@@ -1,11 +1,11 @@
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 function Display(props) {
-  const {english, romaji, japanese, keypress, file, picture, theme, showDisplay, setShowDisplay } = props;
+  const {english, romaji, japanese, keypress, file, picture, theme, showTransition, setShowTransition } = props;
   const sample = {english, romaji, japanese};
   return (
     <SwitchTransition>
       <CSSTransition classNames="fade"
-        key={showDisplay ? 'display-true' : 'display-false'}
+        key={showTransition.display ? 'display-true' : 'display-false'}
         addEndListener={(node, done) => {
           node.addEventListener("transitionend", done, false);
         }}
