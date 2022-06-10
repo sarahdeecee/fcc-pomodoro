@@ -11,6 +11,7 @@ function DrumPad(props) {
     playAudio(file);
     setShowTransition({...showTransition, display: !showTransition.display});
   }
+  
   return (
     <CSSTransition timeout={50}>
       <Badge color="secondary" overlap="circular" badgeContent={keypress.toUpperCase()}>
