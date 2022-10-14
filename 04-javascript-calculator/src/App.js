@@ -1,7 +1,7 @@
 import './App.css';
-import EqualsButton from './buttons/Equals';
-import NumberButton from './buttons/Number';
-import OperatorButton from './buttons/Operator';
+import EqualsButton from './components/buttons/Equals';
+import NumberButton from './components/buttons/Number';
+import OperatorButton from './components/buttons/Operator';
 
 function App() {
   const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
