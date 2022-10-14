@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import EqualsButton from './buttons/Equals';
+import NumberButton from './buttons/Number';
+import OperatorButton from './buttons/Operator';
 
 function App() {
+  const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  const operators = ['add', 'subtract', 'multiply', 'divide'];
+  
+  const numberButtons = numbers.map(num => <NumberButton value={num} />)
+  const operatorButtons = operators.map(operator => <OperatorButton operator={operator} />)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <EqualsButton />
+      {numberButtons}
+      {operatorButtons}
     </div>
   );
 }
