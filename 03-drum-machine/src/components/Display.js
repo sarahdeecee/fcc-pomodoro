@@ -11,7 +11,9 @@ function Display(props) {
           node.addEventListener("transitionend", done, false);
         }}
         >
-        <Typography variant="h3" component="h1" id="display">{sample[theme.language]}</Typography>
+        <Typography variant="h3" component="h1" id="display" p={1} sx={{minHeight: '1em'}}>
+          {sample[theme.language]}
+        </Typography>
       </CSSTransition>
     </SwitchTransition>
   );
