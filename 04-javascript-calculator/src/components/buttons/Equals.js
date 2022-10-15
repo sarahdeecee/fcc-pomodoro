@@ -1,7 +1,11 @@
+import { Button } from "react-bootstrap";
+
 function EqualsButton() {
   return (
-    <div id="equals">
-      =
+    <div className="button equals-button" id="equals">
+      <Button>
+        =
+      </Button>
     </div>
   );
 }

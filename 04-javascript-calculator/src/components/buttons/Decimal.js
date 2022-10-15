@@ -1,7 +1,11 @@
+import { Button } from "react-bootstrap";
+
 function DecimalButton() {
   return (
-    <div id="decimal">
-      .
+    <div className="button decimal-button" id="decimal">
+      <Button>
+        .
+      </Button>
     </div>
   );
 }

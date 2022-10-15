@@ -1,7 +1,11 @@
+import { Button } from "react-bootstrap";
+
 function ClearButton() {
   return (
-    <div id="clear">
-      AC
+    <div className="button clear-button" id="clear">
+      <Button>
+        AC
+      </Button>
     </div>
   );
 }

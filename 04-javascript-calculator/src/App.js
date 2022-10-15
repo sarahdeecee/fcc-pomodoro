@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
 import ClearButton from './components/buttons/Clear';
@@ -5,9 +6,10 @@ import DecimalButton from './components/buttons/Decimal';
 import EqualsButton from './components/buttons/Equals';
 import NumberButton from './components/buttons/Number';
 import OperatorButton from './components/buttons/Operator';
+import Display from './components/Display';
 
 function App() {
-  // const numbers = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  const [currentValue, setCurrentValue] = useState(0);
   const numbers = [
     {
       word: 'zero',
@@ -96,14 +98,15 @@ function App() {
   const divideButton = createOperatorButton(operators.find(operator => operator.word === 'divide'));
   
   return (
-    <Container>
-      <Row xs="auto">{clearButton}{divideButton}{multiplyButton}</Row>
-      <Row xs="auto">{numberButtons7to9}{subtractButton}</Row>
-      <Row xs="auto">{numberButtons4to6}{addButton}</Row>
-      <Row xs="auto">
+    <Container xs={12} className="App">
+      <Row><Display currentValue={currentValue} /></Row>
+      <Row>{clearButton}{divideButton}{multiplyButton}</Row>
+      <Row>{numberButtons7to9}{subtractButton}</Row>
+      <Row>{numberButtons4to6}{addButton}</Row>
+      <Row>
         <Col xs="9">
-            <Row xs="auto">{numberButtons1to3}</Row>
-            <Row xs="auto">{numberButton0}{decimalButton}</Row>
+            <Row>{numberButtons1to3}</Row>
+            <Row>{numberButton0}{decimalButton}</Row>
         </Col>
         <Col xs="3">
           <EqualsButton />

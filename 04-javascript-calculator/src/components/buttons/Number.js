@@ -1,8 +1,12 @@
+import { Button } from "react-bootstrap";
+
 function NumberButton(props) {
   const { value } = props;
   return (
-    <div id={value.word}>
-      {value.char}
+    <div className="button number-button" id={value.word}>
+      <Button>
+        {value.char}
+      </Button>
     </div>
   );
 }
