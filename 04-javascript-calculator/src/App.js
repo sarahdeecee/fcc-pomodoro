@@ -1,5 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
+import ClearButton from './components/buttons/Clear';
 import DecimalButton from './components/buttons/Decimal';
 import EqualsButton from './components/buttons/Equals';
 import NumberButton from './components/buttons/Number';
@@ -67,28 +68,47 @@ function App() {
       char: '/'
     }
   ];
-  const createNumberButtons = (numberArray, columns) => {
-    const colspan = columns * 4;
+  const createNumberButtons = (numberArray, colspan) => {
     return numberArray.map(num => <Col xs={colspan}><NumberButton value={num} /></Col>)
   }
-  const createButton = () => {
+  const createOperatorButton = operatorObject => {
+    return <Col><OperatorButton value={operatorObject} /></Col>
+  }
+  const createDecimalButton = () => {
     return <Col><DecimalButton /></Col>
   }
-  const numberButtonsRow1 = createNumberButtons(numbers.filter(num => (num.char >= 7)), 1);
-  const numberButtonsRow2 = createNumberButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)), 1);
-  const numberButtonsRow3 = createNumberButtons(numbers.filter(num => (num.char <= 3 && num.char >= 1)), 1);
-  const numberButtonsRow4 = createNumberButtons(numbers.filter(num => (num.char == 0)), 2);
-  const decimalButton = createButton(['.']);
-  const operatorButtons = operators.map(operator => <OperatorButton operator={operator} />)
+  const createEqualsButton = () => {
+    return <Col><EqualsButton /></Col>
+  }
+  const createClearButton = () => {
+    return <Col xs="6"><ClearButton /></Col>
+  }
+  const numberButtons7to9 = createNumberButtons(numbers.filter(num => (num.char >= 7)), 3);
+  const numberButtons4to6 = createNumberButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)), 3);
+  const numberButtons1to3 = createNumberButtons(numbers.filter(num => (num.char <= 3 && num.char >= 1)), 4);
+  const numberButton0 = createNumberButtons(numbers.filter(num => (num.char == 0)), 8);
+  const decimalButton = createDecimalButton();
+  const clearButton = createClearButton();
+  const equalsButton = createEqualsButton();
+  const addButton = createOperatorButton(operators.find(operator => operator.word === 'add'));
+  const subtractButton = createOperatorButton(operators.find(operator => operator.word === 'subtract'));
+  const multiplyButton = createOperatorButton(operators.find(operator => operator.word === 'multiply'));
+  const divideButton = createOperatorButton(operators.find(operator => operator.word === 'divide'));
   
   return (
     <Container>
-      {/* <EqualsButton /> */}
-      <Row xs="auto">{numberButtonsRow1}</Row>
-      <Row xs="auto">{numberButtonsRow2}</Row>
-      <Row xs="auto">{numberButtonsRow3}</Row>
-      <Row xs="auto">{numberButtonsRow4}{decimalButton}</Row>
-      {/* {operatorButtons} */}
+      <Row xs="auto">{clearButton}{divideButton}{multiplyButton}</Row>
+      <Row xs="auto">{numberButtons7to9}{subtractButton}</Row>
+      <Row xs="auto">{numberButtons4to6}{addButton}</Row>
+      <Row xs="auto">
+        <Col xs="9">
+            <Row xs="auto">{numberButtons1to3}</Row>
+            <Row xs="auto">{numberButton0}{decimalButton}</Row>
+        </Col>
+        <Col xs="3">
+          <EqualsButton />
+        </Col>
+      </Row>
     </Container>
   );
 }

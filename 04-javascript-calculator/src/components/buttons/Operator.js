@@ -1,8 +1,8 @@
 function OperatorButton(props) {
-  const { operator } = props;
+  const { value } = props;
   return (
-    <div id={operator}>
-      {operator}
+    <div id={value.word}>
+      {value.char}
     </div>
   );
 }
