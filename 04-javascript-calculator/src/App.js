@@ -9,7 +9,11 @@ import OperatorButton from './components/buttons/Operator';
 import Display from './components/Display';
 
 function App() {
-  const [currentValue, setCurrentValue] = useState(0);
+  const [currentValue, setCurrentValue] = useState({
+    total: 0,
+    operator: null,
+    display: 0,
+  });
   const numbers = [
     {
       word: 'zero',

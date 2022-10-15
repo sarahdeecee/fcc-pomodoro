@@ -3,7 +3,8 @@ import { Button } from "react-bootstrap";
 function NumberButton(props) {
   const { number, currentValue, setCurrentValue } = props;
   const handleNumber = () => {
-    setCurrentValue(currentValue * 10 + number.char);
+    const newTotal = currentValue.total * 10 + number.char;
+    setCurrentValue({...currentValue, total: newTotal, display: newTotal});
   };
 
   return (
