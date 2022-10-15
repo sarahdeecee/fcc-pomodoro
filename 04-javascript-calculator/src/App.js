@@ -1,5 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
+import DecimalButton from './components/buttons/Decimal';
 import EqualsButton from './components/buttons/Equals';
 import NumberButton from './components/buttons/Number';
 import OperatorButton from './components/buttons/Operator';
@@ -7,41 +8,77 @@ import OperatorButton from './components/buttons/Operator';
 function App() {
   // const numbers = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
   const numbers = [
-    { word: 'one',
+    {
+      word: 'zero',
+      char: 0, 
+    },
+    {
+      word: 'one',
       char: 1, 
     },
-    { word: 'two',
+    {
+      word: 'two',
       char: 2, 
     },
-    { word: 'three',
+    {
+      word: 'three',
       char: 3, 
     },
-    { word: 'four',
+    {
+      word: 'four',
       char: 4, 
     },
-    { word: 'five',
+    {
+      word: 'five',
       char: 5, 
     },
-    { word: 'six',
+    {
+      word: 'six',
       char: 6, 
     },
-    { word: 'seven',
+    {
+      word: 'seven',
       char: 7, 
     },
-    { word: 'eight',
+    {
+      word: 'eight',
       char: 8, 
     },
-    { word: 'nine',
+    {
+      word: 'nine',
       char: 9
     }
   ];
-  const operators = ['add', 'subtract', 'multiply', 'divide'];
-  const createButtons = numberArray => {
-    return numberArray.map(num => <Col><NumberButton value={num} /></Col>)
+  const operators = [
+    {
+      word: 'add',
+      char: '+'
+    }, 
+    {
+      word: 'subtract',
+      char: '-'
+    },
+    {
+      word: 'multiply',
+      char: 'x'
+    },
+    {
+      word: 'divide',
+      char: '/'
+    }
+  ];
+  const createNumberButtons = (numberArray, columns) => {
+    const colspan = columns * 4;
+    return numberArray.map(num => <Col xs={colspan}><NumberButton value={num} /></Col>)
   }
-  const numberButtonsRow1 = createButtons(numbers.filter(num => (num.char >= 7)));
-  const numberButtonsRow2 = createButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)))
-  const numberButtonsRow3 = createButtons(numbers.filter(num => (num.char <= 3)))
+  const createButton = () => {
+    return <Col><DecimalButton /></Col>
+  }
+  const numberButtonsRow1 = createNumberButtons(numbers.filter(num => (num.char >= 7)), 1);
+  const numberButtonsRow2 = createNumberButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)), 1);
+  const numberButtonsRow3 = createNumberButtons(numbers.filter(num => (num.char <= 3 && num.char >= 1)), 1);
+  const numberButtonsRow4 = createNumberButtons(numbers.filter(num => (num.char == 0)), 2);
+  const decimalButton = createButton(['.']);
   const operatorButtons = operators.map(operator => <OperatorButton operator={operator} />)
   
   return (
@@ -50,6 +87,7 @@ function App() {
       <Row xs="auto">{numberButtonsRow1}</Row>
       <Row xs="auto">{numberButtonsRow2}</Row>
       <Row xs="auto">{numberButtonsRow3}</Row>
+      <Row xs="auto">{numberButtonsRow4}{decimalButton}</Row>
       {/* {operatorButtons} */}
     </Container>
   );
