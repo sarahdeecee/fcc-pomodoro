@@ -71,7 +71,7 @@ function App() {
     }
   ];
   const createNumberButtons = (numberArray, colspan) => {
-    return numberArray.map(num => <Col xs={colspan}><NumberButton value={num} /></Col>)
+    return numberArray.map(num => <Col xs={colspan}><NumberButton number={num} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>)
   }
   const createOperatorButton = operatorObject => {
     return <Col><OperatorButton value={operatorObject} /></Col>
@@ -80,7 +80,7 @@ function App() {
     return <Col><DecimalButton /></Col>
   }
   const createClearButton = () => {
-    return <Col xs="6"><ClearButton /></Col>
+    return <Col xs="6"><ClearButton setCurrentValue={setCurrentValue} /></Col>
   }
   const numberButtons7to9 = createNumberButtons(numbers.filter(num => (num.char >= 7)), 3);
   const numberButtons4to6 = createNumberButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)), 3);
