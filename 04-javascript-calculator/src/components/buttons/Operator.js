@@ -4,7 +4,7 @@ function OperatorButton(props) {
   const { value } = props;
   return (
     <div className="button operator-button" id={value.word}>
-      <Button>
+      <Button variant="secondary">
         {value.char}
       </Button>
     </div>

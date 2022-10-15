@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 function ClearButton() {
   return (
     <div className="button clear-button" id="clear">
-      <Button>
+      <Button variant="danger">
         AC
       </Button>
     </div>

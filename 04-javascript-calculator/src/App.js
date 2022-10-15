@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import './App.css';
 import ClearButton from './components/buttons/Clear';
 import DecimalButton from './components/buttons/Decimal';
@@ -79,9 +79,6 @@ function App() {
   const createDecimalButton = () => {
     return <Col><DecimalButton /></Col>
   }
-  const createEqualsButton = () => {
-    return <Col><EqualsButton /></Col>
-  }
   const createClearButton = () => {
     return <Col xs="6"><ClearButton /></Col>
   }
@@ -91,28 +88,29 @@ function App() {
   const numberButton0 = createNumberButtons(numbers.filter(num => (num.char == 0)), 8);
   const decimalButton = createDecimalButton();
   const clearButton = createClearButton();
-  const equalsButton = createEqualsButton();
   const addButton = createOperatorButton(operators.find(operator => operator.word === 'add'));
   const subtractButton = createOperatorButton(operators.find(operator => operator.word === 'subtract'));
   const multiplyButton = createOperatorButton(operators.find(operator => operator.word === 'multiply'));
   const divideButton = createOperatorButton(operators.find(operator => operator.word === 'divide'));
   
   return (
-    <Container xs={12} className="App">
-      <Row><Display currentValue={currentValue} /></Row>
-      <Row>{clearButton}{divideButton}{multiplyButton}</Row>
-      <Row>{numberButtons7to9}{subtractButton}</Row>
-      <Row>{numberButtons4to6}{addButton}</Row>
-      <Row>
-        <Col xs="9">
-            <Row>{numberButtons1to3}</Row>
-            <Row>{numberButton0}{decimalButton}</Row>
-        </Col>
-        <Col xs="3">
-          <EqualsButton />
-        </Col>
-      </Row>
-    </Container>
+    <div xs={12} className="App">
+      <Container id="calculator">
+        <Row xs={12}><Display currentValue={currentValue} /></Row>
+        <Row>{clearButton}{divideButton}{multiplyButton}</Row>
+        <Row>{numberButtons7to9}{subtractButton}</Row>
+        <Row>{numberButtons4to6}{addButton}</Row>
+        <Row>
+          <Col xs="9">
+              <Row>{numberButtons1to3}</Row>
+              <Row>{numberButton0}{decimalButton}</Row>
+          </Col>
+          <Col xs="3">
+            <EqualsButton />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 
