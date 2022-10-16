@@ -10,9 +10,10 @@ import Display from './components/Display';
 
 function App() {
   const [currentValue, setCurrentValue] = useState({
-    total: 0,
-    operator: null,
-    display: 0,
+    expression: '',
+    number: '',
+    operator: '',
+    display: '',
   });
   const numbers = [
     {
@@ -78,7 +79,7 @@ function App() {
     return numberArray.map(num => <Col xs={colspan}><NumberButton number={num} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>)
   }
   const createOperatorButton = operatorObject => {
-    return <Col><OperatorButton value={operatorObject} /></Col>
+    return <Col><OperatorButton operator={operatorObject} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>
   }
   const createDecimalButton = () => {
     return <Col><DecimalButton /></Col>

@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 function ClearButton(props) {
   const {setCurrentValue} = props;
   const handleClear = () => {
-    setCurrentValue({total: 0, display: 0, operator: null});
+    setCurrentValue({expression: '', number: '', display: '', operator: ''});
   }
   return (
     <div className="button clear-button" id="clear">
