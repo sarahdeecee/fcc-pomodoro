@@ -14,7 +14,6 @@ function App() {
     number: '',
     operator: '',
     display: '',
-    sign: '',
     reset: false
   });
   const numbers = [
