@@ -4,8 +4,8 @@ function NumberButton(props) {
   const { number, currentValue, setCurrentValue } = props;
   const handleNumber = () => {
     const newNumber = currentValue.number + number.char;
-    const newExpression = `${currentValue.expression}${number.char.toString()}`;
-    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber.toString()});
+    const newExpression = !currentValue.reset ? `${currentValue.expression}${number.char.toString()}` : number.char.toString();
+    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber.toString(), reset: false});
   };
 
   return (

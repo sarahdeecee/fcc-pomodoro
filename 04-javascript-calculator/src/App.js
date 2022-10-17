@@ -14,6 +14,7 @@ function App() {
     number: '',
     operator: '',
     display: '',
+    reset: false
   });
   const numbers = [
     {
@@ -111,7 +112,7 @@ function App() {
               <Row>{numberButton0}{decimalButton}</Row>
           </Col>
           <Col xs="3">
-            <EqualsButton />
+            <EqualsButton currentValue={currentValue} setCurrentValue={setCurrentValue} />
           </Col>
         </Row>
       </Container>
