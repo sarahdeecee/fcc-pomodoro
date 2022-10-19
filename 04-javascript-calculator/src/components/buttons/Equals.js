@@ -13,7 +13,7 @@ function EqualsButton(props) {
   // console.log('exp ',expressionArray);
   
   const handleExpression = () => {
-    if (!currentValue.reset) {
+    if (!currentValue.reset && expression) {
       let total = 0;
       const evaluatedArray = [];
 
@@ -48,8 +48,8 @@ function EqualsButton(props) {
           i++;
         }
       }
+      // console.log('evulatedArray ',evaluatedArray);
       
-      console.log('evulatedArray ',evaluatedArray);
       // Add/subtract
       for (let i = 0; i < evaluatedArray.length; i++) {
         if (i === 0) {
