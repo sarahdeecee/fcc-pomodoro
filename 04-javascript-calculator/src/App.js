@@ -83,7 +83,7 @@ function App() {
     return <Col><OperatorButton operator={operatorObject} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>
   }
   const createDecimalButton = () => {
-    return <Col><DecimalButton /></Col>
+    return <Col><DecimalButton currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>
   }
   const createClearButton = () => {
     return <Col xs="6"><ClearButton setCurrentValue={setCurrentValue} /></Col>
