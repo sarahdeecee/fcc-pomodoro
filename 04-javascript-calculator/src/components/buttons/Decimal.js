@@ -3,11 +3,17 @@ import { Button } from "react-bootstrap";
 function DecimalButton(props) {
   const {currentValue, setCurrentValue} = props;
 
+  // Account for new number from previous total
+  if (currentValue.reset) {
+    setCurrentValue({...currentValue, reset: false})
+  }
+
   const handleDecimal = () => {
     console.log('add decimal ', currentValue.display);
-    const newExpression = ((currentValue.display).includes('.')) ? currentValue.expression : `${currentValue.expression}.`;
+    const newExpression = ((currentValue.display).includes('.')) ? currentValue.expression
+      : (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? `${currentValue.expression}0.` : `${currentValue.expression}.`;
     const newNumber = ((currentValue.display).includes('.')) ? currentValue.display : `${currentValue.display}.`;
-    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber});
+    setCurrentValue({...currentValue, expression: newExpression, display: newNumber});
   }
 
   return (
