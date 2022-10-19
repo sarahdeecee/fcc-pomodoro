@@ -13,49 +13,49 @@ function App() {
     expression: '',
     number: '',
     operator: '',
-    display: '',
+    display: '0',
     reset: false
   });
   const numbers = [
     {
       word: 'zero',
-      char: 0, 
+      char: '0', 
     },
     {
       word: 'one',
-      char: 1, 
+      char: '1', 
     },
     {
       word: 'two',
-      char: 2, 
+      char: '2', 
     },
     {
       word: 'three',
-      char: 3, 
+      char: '3', 
     },
     {
       word: 'four',
-      char: 4, 
+      char: '4', 
     },
     {
       word: 'five',
-      char: 5, 
+      char: '5', 
     },
     {
       word: 'six',
-      char: 6, 
+      char: '6', 
     },
     {
       word: 'seven',
-      char: 7, 
+      char: '7', 
     },
     {
       word: 'eight',
-      char: 8, 
+      char: '8', 
     },
     {
       word: 'nine',
-      char: 9
+      char: '9'
     }
   ];
   const operators = [
@@ -88,10 +88,10 @@ function App() {
   const createClearButton = () => {
     return <Col xs="6"><ClearButton setCurrentValue={setCurrentValue} /></Col>
   }
-  const numberButtons7to9 = createNumberButtons(numbers.filter(num => (num.char >= 7)), 3);
-  const numberButtons4to6 = createNumberButtons(numbers.filter(num => (num.char <= 6 && num.char >= 4)), 3);
-  const numberButtons1to3 = createNumberButtons(numbers.filter(num => (num.char <= 3 && num.char >= 1)), 4);
-  const numberButton0 = createNumberButtons(numbers.filter(num => (num.char == 0)), 8);
+  const numberButtons7to9 = createNumberButtons(numbers.filter(num => (parseInt(num.char) >= 7)), 3);
+  const numberButtons4to6 = createNumberButtons(numbers.filter(num => (parseInt(num.char) <= 6 && parseInt(num.char) >= 4)), 3);
+  const numberButtons1to3 = createNumberButtons(numbers.filter(num => (parseInt(num.char) <= 3 && parseInt(num.char) >= 1)), 4);
+  const numberButton0 = createNumberButtons(numbers.filter(num => (parseInt(num.char) == 0)), 8);
   const decimalButton = createDecimalButton();
   const clearButton = createClearButton();
   const addButton = createOperatorButton(operators.find(operator => operator.word === 'add'));

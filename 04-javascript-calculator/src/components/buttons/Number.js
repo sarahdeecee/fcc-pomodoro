@@ -3,9 +3,14 @@ import { Button } from "react-bootstrap";
 function NumberButton(props) {
   const { number, currentValue, setCurrentValue } = props;
   const handleNumber = () => {
-    const newNumber = currentValue.number + number.char;
-    const newExpression = !currentValue.reset ? `${currentValue.expression}${number.char.toString()}` : number.char.toString();
-    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber.toString(), reset: false});
+    let newNumber = (currentValue.display === '0') ? number.char : `${currentValue.display}${number.char}`;
+    let newExpression = `${currentValue.expression}${number.char}`;
+    if (currentValue.reset) {
+      setCurrentValue({...currentValue, reset: false})
+      newNumber = number.char;
+      newExpression = number.char;
+    }
+    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber, reset: false});
   };
 
   return (
