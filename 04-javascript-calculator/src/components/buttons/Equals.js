@@ -6,8 +6,7 @@ function EqualsButton(props) {
 
   // Change expression to array
   // const expressionArray = Array.from(expression);
-  const expressionArray = expression.split(/([+,-,x,/])/);
-  console.log('exp ',expressionArray);
+  const expressionArray = expression.split(/([^0-9,\.])/);
   
   const handleExpression = () => {
     let total = 0;
