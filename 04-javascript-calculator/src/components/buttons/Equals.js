@@ -5,8 +5,9 @@ function EqualsButton(props) {
   const expression = currentValue.expression;
 
   // Change expression to array
-  const expressionArray = Array.from(expression);
-  console.log(expressionArray);
+  // const expressionArray = Array.from(expression);
+  const expressionArray = expression.split(/([+,-,x,/])/);
+  console.log('exp ',expressionArray);
   
   const handleExpression = () => {
     let total = 0;
@@ -31,15 +32,20 @@ function EqualsButton(props) {
     console.log('finished array ',evaluatedArray);
     
     // Add/subtract
-    for (let i = 0; i < evaluatedArray.length - 1; i++) {
+    for (let i = 0; i < evaluatedArray.length; i++) {
       console.log('eval ',evaluatedArray[i]);
+      if (evaluatedArray.length === 1) {
+        total += parseInt(evaluatedArray[i]);
+        console.log('single number ',total);
+      }
       if (evaluatedArray[i+1] === '+') {
         total += parseInt(evaluatedArray[i]) + parseInt(evaluatedArray[i+2]);
-        i++;
+        i+=2;
       } else if (evaluatedArray[i+1] === '-') {
         total += parseInt(evaluatedArray[i]) - parseInt(evaluatedArray[i+2]);
-        i++;
+        i+=2;
       }
+      console.log('total ',total);
     }
 
     const totalExpression = `${currentValue.expression}=${total}`;
