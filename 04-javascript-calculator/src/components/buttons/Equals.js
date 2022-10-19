@@ -33,16 +33,16 @@ function EqualsButton(props) {
     // Add/subtract
     for (let i = 0; i < evaluatedArray.length; i++) {
       console.log('eval ',evaluatedArray[i]);
-      if (evaluatedArray.length === 1) {
+      if (i===0) {
         total += parseInt(evaluatedArray[i]);
         console.log('single number ',total);
       }
-      if (evaluatedArray[i+1] === '+') {
-        total += parseInt(evaluatedArray[i]) + parseInt(evaluatedArray[i+2]);
-        i+=2;
-      } else if (evaluatedArray[i+1] === '-') {
-        total += parseInt(evaluatedArray[i]) - parseInt(evaluatedArray[i+2]);
-        i+=2;
+      if (evaluatedArray[i] === '+') {
+        total += parseInt(evaluatedArray[i+1]);
+        i++;
+      } else if (evaluatedArray[i] === '-') {
+        total -= parseInt(evaluatedArray[i+1]);
+        i++;
       }
       console.log('total ',total);
     }
