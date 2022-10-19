@@ -4,7 +4,10 @@ function DecimalButton(props) {
   const {currentValue, setCurrentValue} = props;
 
   const handleDecimal = () => {
-    console.log('add decimal');
+    console.log('add decimal ', currentValue.display);
+    const newExpression = ((currentValue.display).includes('.')) ? currentValue.expression : `${currentValue.expression}.`;
+    const newNumber = ((currentValue.display).includes('.')) ? currentValue.display : `${currentValue.display}.`;
+    setCurrentValue({...currentValue, expression: newExpression, number: newNumber, display: newNumber});
   }
 
   return (
