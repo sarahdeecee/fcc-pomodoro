@@ -53,7 +53,13 @@ function EqualsButton(props) {
       // Add/subtract
       for (let i = 0; i < evaluatedArray.length; i++) {
         if (i === 0) {
-          total += parseInt(evaluatedArray[i]);
+          // If first number is negative
+          if (evaluatedArray[i] === '-' && !isOperator(evaluatedArray[i+1])) {
+            total -= parseInt(evaluatedArray[i+1]);
+            i++;
+          } else { // If first number is positive
+            total += parseInt(evaluatedArray[i]);
+          }
         }
         if ((i === evaluatedArray.length - 1) && (evaluatedArray[i] === 'x' || evaluatedArray[i] === '/' || evaluatedArray[i] === '+' || evaluatedArray[i] === '-')) {
         i++;
