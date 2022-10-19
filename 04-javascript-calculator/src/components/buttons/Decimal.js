@@ -12,7 +12,8 @@ function DecimalButton(props) {
     console.log('add decimal ', currentValue.display);
     const newExpression = ((currentValue.display).includes('.')) ? currentValue.expression
       : (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? `${currentValue.expression}0.` : `${currentValue.expression}.`;
-    const newNumber = ((currentValue.display).includes('.')) ? currentValue.display : `${currentValue.display}.`;
+    const newNumber = ((currentValue.display).includes('.')) ? currentValue.display
+      : (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? '0.' : `${currentValue.display}.`;
     setCurrentValue({...currentValue, expression: newExpression, display: newNumber});
   }
 
