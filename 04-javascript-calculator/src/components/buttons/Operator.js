@@ -13,6 +13,10 @@ function OperatorButton(props) {
     const removeLastChar = currentValue.expression.slice(0,-1);
     const replaceLastChar = currentValue.expression.slice(0,-1) + operator.char;
     
+    // If reset === true, change expression to previous total (currentValue.number)
+    // if (currentValue.reset) {
+    //   setCurrentValue({...currentValue, display: currentValue.number, number: '', expression: currentValue.number, reset: false})
+    // }
     // If expression exists
     if (currentValue.expression) {
       // If expression ends in times or isTimesDivide, allow negative sign to be added

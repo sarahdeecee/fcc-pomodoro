@@ -13,7 +13,7 @@ function EqualsButton(props) {
   // console.log('exp ',expressionArray);
   
   const handleExpression = () => {
-    if (!currentValue.reset && expression) {
+    if (!currentValue.reset) {
       let total = 0;
       const evaluatedArray = [];
 
@@ -21,7 +21,7 @@ function EqualsButton(props) {
       let i = 0;
       while (i < expressionArray.length) {
         let sign = 1;
-        if (expressionArray[i+1] === 'x' && i+2 < expressionArray.length - 1) {
+        if (expressionArray[i+1] === 'x' && i+2 < expressionArray.length) {
           let first = parseInt(expressionArray[i]);
           // Handle negative signs
           if (expressionArray[i+2] === '-') {
@@ -32,7 +32,7 @@ function EqualsButton(props) {
           const subtotal = first * second;
           evaluatedArray.push(subtotal.toString());
           i = i+3;
-        } else if (expressionArray[i+1] === '/' && i+2 < expressionArray.length - 1) {
+        } else if (expressionArray[i+1] === '/' && i+2 < expressionArray.length) {
           let first = parseInt(expressionArray[i]);
           // Handle negative signs
           if (expressionArray[i+2] === '-') {
@@ -48,8 +48,8 @@ function EqualsButton(props) {
           i++;
         }
       }
-      // console.log('evulatedArray ',evaluatedArray);
       
+      // console.log('evulatedArray ',evaluatedArray);
       // Add/subtract
       for (let i = 0; i < evaluatedArray.length; i++) {
         if (i === 0) {
