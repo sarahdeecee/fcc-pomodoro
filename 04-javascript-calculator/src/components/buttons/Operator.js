@@ -9,8 +9,8 @@ function OperatorButton(props) {
     const isPlusMinus = char => char === '+' || char === '-';
     const isTimesDivide = char => char === 'x' || char === `/`;
 
-    const addChar = currentValue.reset ? currentValue.display + operator.char : currentValue.expression + operator.char;
-    const removeLastChar = currentValue.reset ? currentValue.display : currentValue.expression.slice(0,-1);
+    const addChar = currentValue.reset ? currentValue.number + operator.char : currentValue.expression + operator.char;
+    const removeLastChar = currentValue.reset ? currentValue.number : currentValue.expression.slice(0,-1);
     const replaceLastChar = currentValue.reset ? operator.char : currentValue.expression.slice(0,-1) + operator.char;
     
     // If expression exists

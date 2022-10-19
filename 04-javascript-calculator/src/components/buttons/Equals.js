@@ -72,7 +72,7 @@ function EqualsButton(props) {
       if (isOperator(expression.charAt(expression.length-1))) {
         totalExpression = `${expression.slice(0,-1)}=${total}`;
       }
-      setCurrentValue({...currentValue, display: total, expression: totalExpression, number: '', operator: '', reset: true});
+      setCurrentValue({...currentValue, display: total, expression: totalExpression, number: total, operator: '', reset: true});
     }
   }
   return (
