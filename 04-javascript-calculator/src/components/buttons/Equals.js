@@ -7,7 +7,7 @@ function EqualsButton(props) {
   // Change expression to array
   // const expressionArray = Array.from(expression);
   const expressionArray = expression.split(/([^0-9,\.])/);
-  console.log('exp ',expressionArray);
+  // console.log('exp ',expressionArray);
   
   const handleExpression = () => {
     if (!currentValue.reset) {
@@ -22,7 +22,6 @@ function EqualsButton(props) {
           let first = parseInt(expressionArray[i]);
           // Handle negative signs
           if (expressionArray[i+2] === '') {
-            console.log('change sign');
             i+=2;
             sign = -1;
           }
@@ -34,7 +33,6 @@ function EqualsButton(props) {
           let first = parseInt(expressionArray[i]);
           // Handle negative signs
           if (expressionArray[i+2] === '') {
-            console.log('change sign');
             i+=2;
             sign = -1;
           }
