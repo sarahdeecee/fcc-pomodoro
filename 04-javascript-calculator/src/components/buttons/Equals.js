@@ -41,11 +41,11 @@ function EqualsButton(props) {
           evaluatedArray.push(subtotal.toString());
           i = i+3;
         } else {
-          console.log('else');
           evaluatedArray.push(expressionArray[i]);
           i++;
         }
       }
+      
       console.log('evulatedArray ',evaluatedArray);
       // Add/subtract
       for (let i = 0; i < evaluatedArray.length; i++) {
@@ -65,7 +65,16 @@ function EqualsButton(props) {
         }
       }
 
-      const totalExpression = `${currentValue.expression}=${total}`;
+      let totalExpression = `${expression}=${total}`;
+
+      // If expression ends in operator, remove operator
+      if (expression.charAt(expression.length-1) === 'x' ||
+        expression.charAt(expression.length-1) === '/' ||
+        expression.charAt(expression.length-1) === '+' ||
+        expression.charAt(expression.length-1) === '-') {
+        console.log('remove')
+        totalExpression = `${expression.slice(0,-1)}=${total}`;
+      }
       setCurrentValue({...currentValue, display: total, expression: totalExpression, number: '', operator: '', reset: true});
     }
   }
