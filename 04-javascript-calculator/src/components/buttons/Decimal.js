@@ -8,11 +8,18 @@ function DecimalButton(props) {
     setCurrentValue({...currentValue, reset: false})
   }
 
+  const isDisplayEmpty = () => {
+    return (currentValue === '0');
+  }
+  const isDisplayOperator = () => {
+    return (currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/');
+  }
+
   const handleDecimal = () => {
     const newExpression = ((currentValue.display).includes('.')) ? currentValue.expression
-      : (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? `${currentValue.expression}0.` : `${currentValue.expression}.`;
+      : (isDisplayEmpty || isDisplayOperator) ? `${currentValue.expression}0.` : `${currentValue.expression}.`;
     const newNumber = ((currentValue.display).includes('.')) ? currentValue.display
-      : (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? '0.' : `${currentValue.display}.`;
+      : (isDisplayEmpty || isDisplayOperator) ? '0.' : `${currentValue.display}.`;
     setCurrentValue({...currentValue, expression: newExpression, display: newNumber});
   }
 
