@@ -9,16 +9,16 @@ function OperatorButton(props) {
     const isPlusMinus = char => char === '+' || char === '-';
     const isTimesDivide = char => char === 'x' || char === `/`;
 
-    const addChar = currentValue.expression + operator.char;
-    const removeLastChar = currentValue.expression.slice(0,-1);
-    const replaceLastChar = currentValue.expression.slice(0,-1) + operator.char;
+    const addChar = currentValue.reset ? currentValue.display + operator.char : currentValue.expression + operator.char;
+    const removeLastChar = currentValue.reset ? currentValue.display : currentValue.expression.slice(0,-1);
+    const replaceLastChar = currentValue.reset ? operator.char : currentValue.expression.slice(0,-1) + operator.char;
     
-    // If reset === true, change expression to previous total (currentValue.number)
-    // if (currentValue.reset) {
-    //   setCurrentValue({...currentValue, display: currentValue.number, number: '', expression: currentValue.number, reset: false})
-    // }
     // If expression exists
     if (currentValue.expression) {
+      // If reset === true, change expression to previous total (currentValue.number)
+      if (currentValue.reset) {
+        setCurrentValue({...currentValue, reset: false})
+      }
       // If expression ends in times or isTimesDivide, allow negative sign to be added
       if (isTimesDivide(lastCharacterOfExpression)) {
         if (operator.char === '-') {
