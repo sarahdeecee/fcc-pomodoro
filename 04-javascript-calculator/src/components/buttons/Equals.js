@@ -4,10 +4,13 @@ function EqualsButton(props) {
   const {currentValue, setCurrentValue} = props;
   const expression = currentValue.expression;
 
+  const isOperator = char => {
+    return (char === 'x' || char === '/' || char === '+' || char === '-' );
+  }
   // Change expression to array
   // const expressionArray = Array.from(expression);
   const expressionArray = expression.split(/([^0-9,\.])/).filter(elem => elem !== '');
-  console.log('exp ',expressionArray);
+  // console.log('exp ',expressionArray);
   
   const handleExpression = () => {
     if (!currentValue.reset) {
@@ -49,12 +52,10 @@ function EqualsButton(props) {
       console.log('evulatedArray ',evaluatedArray);
       // Add/subtract
       for (let i = 0; i < evaluatedArray.length; i++) {
-        console.log('elem ',i,' ',evaluatedArray[i]);
         if (i === 0) {
           total += parseInt(evaluatedArray[i]);
         }
         if ((i === evaluatedArray.length - 1) && (evaluatedArray[i] === 'x' || evaluatedArray[i] === '/' || evaluatedArray[i] === '+' || evaluatedArray[i] === '-')) {
-        console.log('ends in expression');
         i++;
         } else if (evaluatedArray[i] === '+') {
           total += parseInt(evaluatedArray[i+1]);
@@ -68,11 +69,7 @@ function EqualsButton(props) {
       let totalExpression = `${expression}=${total}`;
 
       // If expression ends in operator, remove operator
-      if (expression.charAt(expression.length-1) === 'x' ||
-        expression.charAt(expression.length-1) === '/' ||
-        expression.charAt(expression.length-1) === '+' ||
-        expression.charAt(expression.length-1) === '-') {
-        console.log('remove')
+      if (isOperator(expression.charAt(expression.length-1))) {
         totalExpression = `${expression.slice(0,-1)}=${total}`;
       }
       setCurrentValue({...currentValue, display: total, expression: totalExpression, number: '', operator: '', reset: true});
