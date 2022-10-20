@@ -7,15 +7,31 @@ function EqualsButton(props) {
   const isOperator = char => {
     return (char === 'x' || char === '/' || char === '+' || char === '-' );
   }
+  const hasDecimal = numberString => {
+    return numberString.includes('.');
+  }
   // Change expression to array
   // const expressionArray = Array.from(expression);
   const expressionArray = expression.split(/([^0-9,\.])/).filter(elem => elem !== '');
-  // console.log('exp ',expressionArray);
+  console.log('exp ',expressionArray);
   
   const handleExpression = () => {
     if (!currentValue.reset) {
       let total = 0;
       const evaluatedArray = [];
+
+      // Find significant digits
+      let precision = 0;
+      for (let elem of expressionArray) {
+        if (!isOperator(elem)) {
+          const elemPrecision = !hasDecimal(elem) ? elem.length
+            : (elem[0] === '0') ? elem.length-2 : elem.length-1;
+          if (elemPrecision > precision) {
+            precision = elemPrecision;
+          }
+        }
+        console.log('precision ',precision);
+      }
 
       // Evaluate times/divide first
       let i = 0;
@@ -72,7 +88,12 @@ function EqualsButton(props) {
         }
       }
 
-      let totalExpression = `${expression}=${total}`;
+      // Round to significant digits
+      // const decimalIndex = elem.indexOf('.');
+      const totalPrecision = total.toString().includes('.') ? total.toString().length-1 : total.toString().length;
+      const significantDigits = (totalPrecision > precision) ? totalPrecision : precision;
+      
+      let totalExpression = `${expression}=${total.toPrecision(significantDigits)}`;
 
       // If expression ends in operator, remove operator
       if (isOperator(expression.charAt(expression.length-1))) {
