@@ -7,6 +7,7 @@ import EqualsButton from './components/buttons/Equals';
 import NumberButton from './components/buttons/Number';
 import OperatorButton from './components/buttons/Operator';
 import Display from './components/Display';
+import { numbers, operators, maxDigits } from './Values';
 
 function App() {
   const [currentValue, setCurrentValue] = useState({
@@ -16,67 +17,7 @@ function App() {
     display: '0',
     reset: false
   });
-  const maxDigits = 20;
-  const numbers = [
-    {
-      word: 'zero',
-      char: '0', 
-    },
-    {
-      word: 'one',
-      char: '1', 
-    },
-    {
-      word: 'two',
-      char: '2', 
-    },
-    {
-      word: 'three',
-      char: '3', 
-    },
-    {
-      word: 'four',
-      char: '4', 
-    },
-    {
-      word: 'five',
-      char: '5', 
-    },
-    {
-      word: 'six',
-      char: '6', 
-    },
-    {
-      word: 'seven',
-      char: '7', 
-    },
-    {
-      word: 'eight',
-      char: '8', 
-    },
-    {
-      word: 'nine',
-      char: '9'
-    }
-  ];
-  const operators = [
-    {
-      word: 'add',
-      char: '+'
-    }, 
-    {
-      word: 'subtract',
-      char: '-'
-    },
-    {
-      word: 'multiply',
-      char: 'x'
-    },
-    {
-      word: 'divide',
-      char: '/'
-    }
-  ];
+  
   const createNumberButtons = (numberArray, colspan) => {
     return numberArray.map(num => <Col xs={colspan}><NumberButton number={num} currentValue={currentValue} setCurrentValue={setCurrentValue} maxDigits={maxDigits} /></Col>)
   }
