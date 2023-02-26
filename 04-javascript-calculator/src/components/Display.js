@@ -1,11 +1,12 @@
+import { Row } from "react-bootstrap";
+
 function Display(props) {
   const { currentValue } = props;
-  return (<>
-    {currentValue.expression ? <h4>{currentValue.expression}</h4> : <h4></h4>}
-    <div id="display">
-      <h1>{currentValue.display}</h1>
+  return (
+    <div className="display">
+    {currentValue.expression ? <h4>{currentValue.expression}</h4> : <h4>_</h4>}
+      <h1 id="display">{currentValue.display}</h1>
     </div>
-    </>
   );
 }
 
