@@ -16,7 +16,7 @@ function App() {
     display: '0',
     reset: false
   });
-  const maxDigits = 16;
+  const maxDigits = 20;
   const numbers = [
     {
       word: 'zero',

@@ -2,8 +2,9 @@ import { Button } from "react-bootstrap";
 
 function NumberButton(props) {
   const { number, currentValue, setCurrentValue, maxDigits } = props;
+  const displayEndsInNumber = (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/');
   const handleNumber = () => {
-    let newNumber = (currentValue.display === '0' || currentValue.display === '+' || currentValue.display === '-' || currentValue.display === 'x'  || currentValue.display === '/') ? number.char : 
+    let newNumber = displayEndsInNumber ? number.char : 
       currentValue.display.length < maxDigits ? `${currentValue.display}${number.char}` : currentValue.display;
     let newExpression = (currentValue.display === '0') ? number.char : `${currentValue.expression}${number.char}`;
     if (currentValue.reset) {
