@@ -53,8 +53,8 @@ function OperatorButton(props) {
   };
 
   return (
-    <div className="button operator-button" id={operator.word}>
-      <Button variant="secondary" onClick={handleOperator}>
+    <div className="button operator-button">
+      <Button variant="secondary" onClick={handleOperator} id={operator.word}>
         {operator.char}
       </Button>
     </div>

@@ -108,8 +108,8 @@ function EqualsButton(props) {
     }
   }
   return (
-    <div className="button equals-button" id="equals">
-      <Button variant="secondary" onClick={handleExpression}>
+    <div className="button equals-button">
+      <Button variant="secondary" onClick={handleExpression} id="equals">
         =
       </Button>
     </div>
