@@ -7,6 +7,9 @@ function EqualsButton(props) {
   const isOperator = char => {
     return (char === 'x' || char === '/' || char === '+' || char === '-' );
   }
+  const isTimesDivide = char => {
+    return (char === 'x' || char === '/');
+  }
   const hasDecimal = numberString => {
     return numberString.includes('.');
   }
@@ -23,6 +26,7 @@ function EqualsButton(props) {
       // Find significant digits
       let precision = 0;
       for (let elem of expressionArray) {
+        console.log('elem ',elem)
         if (!isOperator(elem)) {
           const elemPrecision = !hasDecimal(elem) ? elem.length
             : (elem[0] === '0') ? elem.length-2 : elem.length-1;
@@ -93,7 +97,8 @@ function EqualsButton(props) {
       const totalPrecision = total.toString().includes('.') ? total.toString().length-1 : total.toString().length;
       const significantDigits = (totalPrecision > precision) ? totalPrecision : precision;
       
-      let totalExpression = `${expression}=${total.toPrecision(significantDigits)}`;
+      // let totalExpression = `${expression}=${total.toPrecision(significantDigits)}`;
+      let totalExpression = `${expression}=${total}`;
 
       // If expression ends in operator, remove operator
       if (isOperator(expression.charAt(expression.length-1))) {

@@ -8,6 +8,7 @@ function OperatorButton(props) {
 
     const isPlusMinus = char => char === '+' || char === '-';
     const isTimesDivide = char => char === 'x' || char === `/`;
+    const endsInDecimal = char => char.endsWith('.');
 
     const addChar = currentValue.reset ? currentValue.number + operator.char : currentValue.expression + operator.char;
     const removeLastChar = currentValue.reset ? currentValue.number : currentValue.expression.slice(0,-1);
@@ -44,7 +45,8 @@ function OperatorButton(props) {
         }
       // If expression ends in a number, add operator
       } else if (Number.isInteger(parseInt(lastCharacterOfExpression))) {
-        const newExpression = addChar;
+        // If ends in decimal, remove decimal
+        const newExpression = endsInDecimal(lastCharacterOfExpression) ? replaceLastChar : addChar;
         setCurrentValue({ ...currentValue, display: operator.char, operator: operator.char, expression: newExpression, number: '', reset: false})
       }
     }
