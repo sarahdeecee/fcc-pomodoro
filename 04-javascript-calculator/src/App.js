@@ -16,6 +16,7 @@ function App() {
     display: '0',
     reset: false
   });
+  const maxDigits = 16;
   const numbers = [
     {
       word: 'zero',
@@ -77,7 +78,7 @@ function App() {
     }
   ];
   const createNumberButtons = (numberArray, colspan) => {
-    return numberArray.map(num => <Col xs={colspan}><NumberButton number={num} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>)
+    return numberArray.map(num => <Col xs={colspan}><NumberButton number={num} currentValue={currentValue} setCurrentValue={setCurrentValue} maxDigits={maxDigits} /></Col>)
   }
   const createOperatorButton = operatorObject => {
     return <Col><OperatorButton operator={operatorObject} currentValue={currentValue} setCurrentValue={setCurrentValue} /></Col>
