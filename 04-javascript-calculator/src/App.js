@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
 import ClearButton from './components/buttons/Clear';
 import DecimalButton from './components/buttons/Decimal';
@@ -33,7 +33,7 @@ function App() {
   const numberButtons7to9 = createNumberButtons(numbers.filter(num => (parseInt(num.char) >= 7)), 3);
   const numberButtons4to6 = createNumberButtons(numbers.filter(num => (parseInt(num.char) <= 6 && parseInt(num.char) >= 4)), 3);
   const numberButtons1to3 = createNumberButtons(numbers.filter(num => (parseInt(num.char) <= 3 && parseInt(num.char) >= 1)), 4);
-  const numberButton0 = createNumberButtons(numbers.filter(num => (parseInt(num.char) == 0)), 8);
+  const numberButton0 = createNumberButtons(numbers.filter(num => (parseInt(num.char) === 0)), 8);
   const decimalButton = createDecimalButton();
   const clearButton = createClearButton();
   const addButton = createOperatorButton(operators.find(operator => operator.word === 'add'));

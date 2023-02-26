@@ -7,16 +7,12 @@ function EqualsButton(props) {
   const isOperator = char => {
     return (char === 'x' || char === '/' || char === '+' || char === '-' );
   }
-  const isTimesDivide = char => {
-    return (char === 'x' || char === '/');
-  }
   const hasDecimal = numberString => {
     return numberString.includes('.');
   }
   // Change expression to array
   // const expressionArray = Array.from(expression);
-  const expressionArray = expression.split(/([^0-9,\.])/).filter(elem => elem !== '');
-  console.log('exp ',expressionArray);
+  const expressionArray = expression.split(/([^0-9,.])/).filter(elem => elem !== '');
   
   const handleExpression = () => {
     if (!currentValue.reset) {

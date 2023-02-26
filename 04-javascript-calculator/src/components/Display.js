@@ -1,5 +1,3 @@
-import { Row } from "react-bootstrap";
-
 function Display(props) {
   const { currentValue } = props;
   return (
