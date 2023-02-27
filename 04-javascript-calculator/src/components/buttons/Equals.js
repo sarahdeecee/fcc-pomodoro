@@ -5,7 +5,7 @@ function EqualsButton(props) {
   const expression = currentValue.expression;
 
   const isOperator = char => {
-    return (char === 'x' || char === '/' || char === '+' || char === '-' );
+    return (char === '*' || char === '/' || char === '+' || char === '-' );
   }
   const hasDecimal = numberString => {
     return numberString.includes('.');
@@ -37,7 +37,7 @@ function EqualsButton(props) {
       let i = 0;
       while (i < expressionArray.length) {
         let sign = 1;
-        if (expressionArray[i+1] === 'x' && i+2 < expressionArray.length) {
+        if (expressionArray[i+1] === '*' && i+2 < expressionArray.length) {
           let first = parseFloat(expressionArray[i]);
           // Handle negative signs
           if (expressionArray[i+2] === '-') {
@@ -77,7 +77,7 @@ function EqualsButton(props) {
             total += parseFloat(evaluatedArray[i]);
           }
         }
-        if ((i === evaluatedArray.length - 1) && (evaluatedArray[i] === 'x' || evaluatedArray[i] === '/' || evaluatedArray[i] === '+' || evaluatedArray[i] === '-')) {
+        if ((i === evaluatedArray.length - 1) && (evaluatedArray[i] === '*' || evaluatedArray[i] === '/' || evaluatedArray[i] === '+' || evaluatedArray[i] === '-')) {
         i++;
         } else if (evaluatedArray[i] === '+') {
           total += parseFloat(evaluatedArray[i+1]);
@@ -88,12 +88,6 @@ function EqualsButton(props) {
         }
       }
 
-      // Round to significant digits
-      // const decimalIndex = elem.indexOf('.');
-      const totalPrecision = total.toString().includes('.') ? total.toString().length-1 : total.toString().length;
-      const significantDigits = (totalPrecision > precision) ? totalPrecision : precision;
-      
-      // let totalExpression = `${expression}=${total.toPrecision(significantDigits)}`;
       let totalExpression = `${expression}=${total}`;
 
       // If expression ends in operator, remove operator
@@ -103,6 +97,7 @@ function EqualsButton(props) {
       setCurrentValue({...currentValue, display: total, expression: totalExpression, number: total, operator: '', reset: true});
     }
   }
+
   return (
     <div className="button equals-button">
       <Button variant="secondary" onClick={handleExpression} id="equals">

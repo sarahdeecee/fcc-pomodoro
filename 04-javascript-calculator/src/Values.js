@@ -52,7 +52,7 @@ export const operators = [
   },
   {
     word: 'multiply',
-    char: 'x'
+    char: '*'
   },
   {
     word: 'divide',
