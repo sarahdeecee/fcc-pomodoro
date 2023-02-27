@@ -7,7 +7,7 @@ function OperatorButton(props) {
     const secondLastCharacterOfExpression = currentValue.expression[currentValue.expression.length - 2];
 
     const isPlusMinus = char => char === '+' || char === '-';
-    const isTimesDivide = char => char === 'x' || char === `/`;
+    const isTimesDivide = char => char === '*' || char === `/`;
     const endsInDecimal = char => char.endsWith('.');
 
     const addChar = currentValue.reset ? currentValue.number + operator.char : currentValue.expression + operator.char;
