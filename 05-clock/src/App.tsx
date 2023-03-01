@@ -1,6 +1,17 @@
 import './App.css';
 import { Button } from '@mui/material';
 
+const lengthValues = [
+  {
+    type: "break",
+    minutes: 5,
+  },
+  {
+    type: "session",
+    minutes: 25
+  }
+]
+
 function App() {
   return (
     <div className="App">
