@@ -6,10 +6,10 @@ function App() {
     <div className="App">
       <div id="break-label">Break Length</div>
       <div id="session-label">Session Length</div>
-      <Button id="break-decrement"></Button>
-      <Button id="session-decrement"></Button>
-      <Button id="break-increment"></Button>
-      <Button id="session-increment"></Button>
+      <Button id="break-decrement">Up</Button>
+      <Button id="session-decrement">Down</Button>
+      <Button id="break-increment">Up</Button>
+      <Button id="session-increment">Down</Button>
       <Button id="break-length">5</Button>
       <Button id="session-length">25</Button>
       <Button id="timer-label">Session</Button>
