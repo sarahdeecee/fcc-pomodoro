@@ -1,15 +1,16 @@
-import './App.css';
 import { Button } from '@mui/material';
 
-function App() {
+function Modifier(props) {
+  const {type, minutes} = props;
+
   return (
     <div>
-      <div id="break-label">Break Length</div>
-      <Button id="break-decrement">Down</Button>
-      <Button id="break-length">5</Button>
-      <Button id="break-increment">Up</Button>
+      <div id={`${type}-label`}>{type} Length</div>
+      <Button id={`${type}-increment`}>Up</Button>
+      <Button id={`${type}-length`}>{minutes}</Button>
+      <Button id={`${type}-decrement`}>Down</Button>
     </div>
   );
 }
 
-export default App;
+export default Modifier;

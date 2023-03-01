@@ -1,5 +1,6 @@
 import './App.css';
 import { Button } from '@mui/material';
+import Modifier from './components/Modifier';
 
 const lengthValues = [
   {
@@ -13,16 +14,10 @@ const lengthValues = [
 ]
 
 function App() {
+  const modifiers = lengthValues.map(length => <Modifier type={length.type} minutes={length.minutes} />)
   return (
     <div className="App">
-      <div id="break-label">Break Length</div>
-      <div id="session-label">Session Length</div>
-      <Button id="break-decrement">Up</Button>
-      <Button id="session-decrement">Down</Button>
-      <Button id="break-increment">Up</Button>
-      <Button id="session-increment">Down</Button>
-      <Button id="break-length">5</Button>
-      <Button id="session-length">25</Button>
+      {modifiers}
       <Button id="timer-label">Session</Button>
       <Button id="time-left">25:00</Button>
       <Button id="start_stop"></Button>
