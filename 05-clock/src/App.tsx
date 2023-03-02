@@ -29,7 +29,7 @@ function App() {
       <Grid container justifyContent="center">
         {modifiers}
       </Grid>
-      <Typography id="timer-label">Session</Typography>
+      <Typography id="timer-label" variant="h4">Session</Typography>
       <Timer />
       <Controls play={play} setPlay={setPlay} />
     </div>
