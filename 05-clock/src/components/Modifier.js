@@ -7,10 +7,10 @@ function Modifier(props) {
 
   return (
     <div>
-      <div id={`${capitalizedType}-label`}>{capitalizedType} Length</div>
-      <Button id={`${capitalizedType}-increment`}><ArrowUpward /></Button>
-      <Button id={`${capitalizedType}-length`}>{minutes}</Button>
-      <Button id={`${capitalizedType}-decrement`}><ArrowDownward /></Button>
+      <div id={`${type}-label`}>{capitalizedType} Length</div>
+      <Button id={`${type}-increment`}><ArrowUpward /></Button>
+      <Button id={`${type}-length`}>{minutes}</Button>
+      <Button id={`${type}-decrement`}><ArrowDownward /></Button>
     </div>
   );
 }
