@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="App">
       {modifiers}
+      <Button id="timer-label">Session</Button>
       <Controls />
     </div>
   );
