@@ -1,7 +1,8 @@
 import './App.css';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
+import Timer from './components/Timer';
 
 const lengthValues = [
   {
@@ -15,12 +16,19 @@ const lengthValues = [
 ]
 
 function App() {
-  const modifiers = lengthValues.map(length => <Modifier type={length.type} minutes={length.minutes} />)
+  const modifiers = lengthValues.map(length => 
+    <Grid item>
+      <Modifier type={length.type} minutes={length.minutes} />
+    </Grid>)
+
   return (
     <div className="App">
-      {modifiers}
-      <Button id="timer-label">Session</Button>
-      <Controls />
+      <Grid container justifyContent="center">
+        {modifiers}
+      </Grid>
+        <Button id="timer-label">Session</Button>
+        <Timer />
+        <Controls />
     </div>
   );
 }
