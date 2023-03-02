@@ -1,6 +1,7 @@
 import './App.css';
 import { Button } from '@mui/material';
 import Modifier from './components/Modifier';
+import Controls from './components/Controls';
 
 const lengthValues = [
   {
@@ -18,10 +19,7 @@ function App() {
   return (
     <div className="App">
       {modifiers}
-      <Button id="timer-label">Session</Button>
-      <Button id="time-left">25:00</Button>
-      <Button id="start_stop"></Button>
-      <Button id="reset"></Button>
+      <Controls />
     </div>
   );
 }
