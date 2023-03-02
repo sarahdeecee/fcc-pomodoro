@@ -16,4 +16,8 @@ code {
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #000A14;
+}
+.MuiSvgIcon-root {
+  color: #04333C;
 }
