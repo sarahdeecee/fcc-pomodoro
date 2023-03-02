@@ -26,9 +26,9 @@ function App() {
       <Grid container justifyContent="center">
         {modifiers}
       </Grid>
-        <Button id="timer-label">Session</Button>
-        <Timer />
-        <Controls />
+      <Button id="timer-label">Session</Button>
+      <Timer />
+      <Controls />
     </div>
   );
 }
