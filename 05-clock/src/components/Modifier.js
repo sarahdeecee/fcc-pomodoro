@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import {ArrowUpward, ArrowDownward} from '@mui/icons-material';
 
 function Modifier(props) {
@@ -7,7 +7,7 @@ function Modifier(props) {
 
   return (
     <div>
-      <div id={`${type}-label`}>{capitalizedType} Length</div>
+      <Typography id={`${type}-label`}>{capitalizedType} Length</Typography>
       <Button id={`${type}-increment`}><ArrowUpward /></Button>
       <Button id={`${type}-length`}>{minutes}</Button>
       <Button id={`${type}-decrement`}><ArrowDownward /></Button>

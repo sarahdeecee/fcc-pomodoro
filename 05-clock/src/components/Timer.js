@@ -1,9 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 function Timer(props) {
   return (
     <div>
-      <Button id="time-left">25:00</Button>
+      <Typography id="time-left" variant="h1">25:00</Typography>
     </div>
   );
 }

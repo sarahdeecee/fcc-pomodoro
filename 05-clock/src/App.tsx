@@ -1,5 +1,5 @@
 import './App.css';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
@@ -26,7 +26,7 @@ function App() {
       <Grid container justifyContent="center">
         {modifiers}
       </Grid>
-      <Button id="timer-label">Session</Button>
+      <Typography id="timer-label">Session</Typography>
       <Timer />
       <Controls />
     </div>

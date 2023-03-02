@@ -1,10 +1,11 @@
+import { PlayArrow, RestartAlt } from '@mui/icons-material';
 import { Button } from '@mui/material';
 
 function Controls(props) {
   return (
     <div>
-      <Button id="start_stop">Start</Button>
-      <Button id="reset">Reset</Button>
+      <PlayArrow id="start_stop" />
+      <RestartAlt id="reset" />
     </div>
   );
 }
