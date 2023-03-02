@@ -25,14 +25,16 @@ function App() {
     </Grid>)
 
   return (
-    <div className="App">
+    <Grid container alignItems="center" justifyContent="center" className="App">
       <Grid container justifyContent="center">
         {modifiers}
       </Grid>
-      <Typography id="timer-label" variant="h4">Session</Typography>
-      <Timer />
-      <Controls play={play} setPlay={setPlay} />
-    </div>
+      <Grid item>
+        <Typography id="timer-label" variant="h4">Session</Typography>
+        <Timer />
+        <Controls play={play} setPlay={setPlay} />
+      </Grid>
+    </Grid>
   );
 }
 
