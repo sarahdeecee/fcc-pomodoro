@@ -1,10 +1,12 @@
-import { PlayArrow, RestartAlt } from '@mui/icons-material';
+import { Pause, PlayArrow, RestartAlt } from '@mui/icons-material';
 import { Button } from '@mui/material';
 
 function Controls(props) {
+  const {play, setPlay} = props;
+
   return (
     <div>
-      <PlayArrow id="start_stop" />
+      {play ? <PlayArrow id="start_stop" /> : <Pause id="start_stop" />}
       <RestartAlt id="reset" />
     </div>
   );

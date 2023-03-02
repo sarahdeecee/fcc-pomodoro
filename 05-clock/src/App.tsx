@@ -3,6 +3,7 @@ import { Button, Grid, Typography } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
+import { useState } from 'react';
 
 const lengthValues = [
   {
@@ -16,6 +17,8 @@ const lengthValues = [
 ]
 
 function App() {
+  const [play, setPlay] = useState(true);
+
   const modifiers = lengthValues.map(length => 
     <Grid item>
       <Modifier type={length.type} minutes={length.minutes} />
@@ -28,7 +31,7 @@ function App() {
       </Grid>
       <Typography id="timer-label">Session</Typography>
       <Timer />
-      <Controls />
+      <Controls play={play} setPlay={setPlay} />
     </div>
   );
 }
