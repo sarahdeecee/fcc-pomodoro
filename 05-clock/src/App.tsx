@@ -18,6 +18,8 @@ const lengthValues = [
 
 function App() {
   const [play, setPlay] = useState(false);
+  const [type, setType] = useState("session");
+  const [length, setLength] = useState(25);
 
   const modifiers = lengthValues.map(length => 
     <Grid item>
@@ -32,7 +34,7 @@ function App() {
       <Grid item>
         <Typography id="timer-label" variant="h4">Session</Typography>
         <Timer />
-        <Controls play={play} setPlay={setPlay} />
+        <Controls play={play} setPlay={setPlay} setLength={setLength} />
       </Grid>
     </Grid>
   );
