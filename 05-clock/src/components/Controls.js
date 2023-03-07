@@ -4,13 +4,20 @@ import { Button } from '@mui/material';
 function Controls(props) {
   const {play, setPlay} = props;
 
-  const handleReset = () => {
+  const handlePause = () => {
     setPlay(false);
+  }
+
+  const handleReset = () => {
+    handlePause();
+  }
+  const handlePlay = () => {
+    setPlay(true);
   }
 
   return (
     <div>
-      {play ? <PlayArrow id="start_stop" /> : <Pause id="start_stop" />}
+      {play ? <Pause id="start_stop" onClick={handlePause} /> : <PlayArrow id="start_stop" onClick={handlePlay} /> }
       <RestartAlt id="reset" onClick={handleReset} />
     </div>
   );

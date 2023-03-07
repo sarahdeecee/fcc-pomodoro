@@ -17,7 +17,7 @@ const lengthValues = [
 ]
 
 function App() {
-  const [play, setPlay] = useState(true);
+  const [play, setPlay] = useState(false);
 
   const modifiers = lengthValues.map(length => 
     <Grid item>
