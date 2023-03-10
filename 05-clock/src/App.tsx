@@ -71,7 +71,7 @@ function App() {
       </Grid>
       <Grid item>
         <Typography id="timer-label" variant="h4">Session</Typography>
-        <Timer minutes={timeLeft?.minutes} seconds={timeLeft?.seconds} />
+        <Timer timeLeft={timeLeft} />
         <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
       </Grid>
     </Grid>
