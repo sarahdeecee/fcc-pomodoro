@@ -25,7 +25,7 @@ const lengthValues: Session[] = [
 ]
 
 function App() {
-  const [play, setPlay] = useState(false);
+  const [play, setPlay] = useState<Boolean>(false);
   const [timeLeft, setTimeLeft] = useState<Session | undefined>(lengthValues[1]);
 
   const calculateTimeLeft = (): Session | undefined => {
@@ -72,7 +72,7 @@ function App() {
       <Grid item>
         <Typography id="timer-label" variant="h4">Session</Typography>
         <Timer />
-        <Controls play={play} setPlay={setPlay} setTimeLeft={setTimeLeft} />
+        <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
       </Grid>
     </Grid>
   );

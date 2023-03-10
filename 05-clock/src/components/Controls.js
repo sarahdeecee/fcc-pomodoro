@@ -2,7 +2,7 @@ import { Pause, PlayArrow, RestartAlt } from '@mui/icons-material';
 import { Button } from '@mui/material';
 
 function Controls(props) {
-  const {play, setPlay, setLength} = props;
+  const {play, setPlay, timeLeft, setTimeLeft} = props;
 
   const handlePause = () => {
     setPlay(false);
@@ -10,7 +10,7 @@ function Controls(props) {
 
   const handleReset = () => {
     handlePause();
-    setLength(25);
+    setTimeLeft({...timeLeft, minutes: 25, seconds: 0});
   }
   const handlePlay = () => {
     setPlay(true);
@@ -23,5 +23,4 @@ function Controls(props) {
     </div>
   );
 }
-
 export default Controls;
