@@ -27,6 +27,18 @@ const lengthValues: Session[] = [
 function App() {
   const [play, setPlay] = useState<Boolean>(false);
   const [timeLeft, setTimeLeft] = useState<Session | undefined>(lengthValues[1]);
+  const [session, setSession] = useState<{break: Session, session: Session}>({
+    break: {
+      type: "break",
+      minutes: 5,
+      seconds: 0
+    },
+    session: {
+      type: "session",
+      minutes: 25,
+      seconds: 0
+    }
+  })
 
   const calculateTimeLeft = (): Session | undefined => {
     if (timeLeft === undefined) {
@@ -61,7 +73,7 @@ function App() {
 
   const modifiers = lengthValues.map(length => 
     <Grid item>
-      <Modifier type={length.type} minutes={length.minutes} />
+      <Modifier type={length.type} minutes={length.minutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
     </Grid>)
 
   return (
