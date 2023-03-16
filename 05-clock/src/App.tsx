@@ -8,14 +8,15 @@ import { useEffect, useState } from 'react';
 interface Session {
   type: string,
   minutes: number,
-  seconds: number
+  seconds: number,
+  set?: boolean
 }
 
 const lengthValues: Session[] = [
   {
     type: "break",
     minutes: 5,
-    seconds: 0
+    seconds: 0,
   },
   {
     type: "session",
@@ -31,29 +32,31 @@ function App() {
     break: {
       type: "break",
       minutes: 5,
-      seconds: 0
+      seconds: 0,
+      set: false
     },
     session: {
       type: "session",
       minutes: 25,
-      seconds: 0
+      seconds: 0,
+      set: true
     }
   })
 
-  const calculateTimeLeft = (): Session | undefined => {
-    if (timeLeft === undefined) {
+  const calculateTimeLeft = (currentTime: Session | undefined) => {
+    if (currentTime === undefined) {
       return undefined;
     }
-    if (play && timeLeft) {
-      if (timeLeft.seconds === 0) {
-        if (timeLeft.minutes === 0) {
+    if (play && currentTime) {
+      if (currentTime.seconds === 0) {
+        if (currentTime.minutes === 0) {
         } else {
-          return {...timeLeft, minutes: timeLeft.minutes - 1, seconds: 59};
+          return {...currentTime, minutes: currentTime.minutes - 1, seconds: 59};
         }
         setPlay(false);
-        return {...timeLeft, minutes: 0, seconds: 0};
+        return {...currentTime, minutes: 0, seconds: 0};
       } else {
-        return {...timeLeft, seconds: timeLeft.seconds - 1};
+        return {...currentTime, seconds: currentTime.seconds - 1};
       }
     }
     return undefined;
@@ -62,13 +65,10 @@ function App() {
   useEffect(() => {
     if (play) {
       const timer = setTimeout(() => {
-        setTimeLeft(calculateTimeLeft());
+        setTimeLeft(calculateTimeLeft(timeLeft));
       }, 1000);
       return () => clearInterval(timer);
     }
-    // if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-      
-    // }
   });
 
   const modifiers = lengthValues.map(length => 
