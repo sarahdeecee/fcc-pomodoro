@@ -11,15 +11,22 @@ function Modifier(props) {
     const minutesUp = minutes + 1;
     if (!play) {
       setSession({...session, [type]: {minutes: minutesUp, seconds: 0}});
-      setTimeLeft({...session[type], minutes: minutesUp})
+      if (type === 'session') {
+        setTimeLeft({...session[type], minutes: minutesUp})
+      }
+    }
+  }
+  
+  const handleLengthDown = () => {
+    const minutesDown = minutes - 1;
+    if (minutes !== 0 && !play) {
+      setSession({...session, [type]: {minutes: minutesDown, seconds: 0}})
+      if (type === 'session') {
+        setTimeLeft({...session[type], minutes: minutesDown})
+      }
     }
   }
 
-  const handleLengthDown = () => {
-    if (minutes !== 0 && !play) {
-      setSession({...session, [type]: {minutes: minutes - 1, seconds: 0}})
-    }
-  }
   return (
     <Grid container alignItems="center">
       <Grid item xs={12}>
