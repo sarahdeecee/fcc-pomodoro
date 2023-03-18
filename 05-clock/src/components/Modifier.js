@@ -2,17 +2,21 @@ import { Button, Grid, Typography } from '@mui/material';
 import {ArrowUpward, ArrowDownward} from '@mui/icons-material';
 
 function Modifier(props) {
-  const {type, timeLeft, setTimeLeft, session, setSession} = props;
+  const {type, play, setPlay, timeLeft, setTimeLeft, session, setSession} = props;
 
   const minutes = session[type].minutes;
   const capitalizedType = type[0].toUpperCase() + type.slice(1,type.length);
 
   const handleLengthUp = () => {
-    setSession({...session, [type]: {minutes: minutes + 1, seconds: 0}})
+    const minutesUp = minutes + 1;
+    if (!play) {
+      setSession({...session, [type]: {minutes: minutesUp, seconds: 0}});
+      setTimeLeft({...session[type], minutes: minutesUp})
+    }
   }
 
   const handleLengthDown = () => {
-    if (minutes !== 0) {
+    if (minutes !== 0 && !play) {
       setSession({...session, [type]: {minutes: minutes - 1, seconds: 0}})
     }
   }

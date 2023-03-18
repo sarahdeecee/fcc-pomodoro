@@ -60,10 +60,10 @@ function App() {
 
   const modifiers = <>
     <Grid item>
-      <Modifier type={"break"} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
+      <Modifier type={"break"} play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
     <Grid item>
-      <Modifier type={"session"} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
+      <Modifier type={"session"} play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
   </>
 
