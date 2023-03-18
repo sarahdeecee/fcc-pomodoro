@@ -42,6 +42,13 @@ function App() {
     }
   };
 
+  const resetTimers = () => {
+    setSession(defaultSessionLengths);
+    setType("session");
+    setPlay(false);
+    setTimeLeft(defaultSessionLengths.session);
+  }
+
   useEffect(() => {
     if (play) {
       const timer = setTimeout(() => {
@@ -68,7 +75,7 @@ function App() {
       <Grid item>
         <Typography id="timer-label" variant="h4">Session</Typography>
         <Timer timeLeft={timeLeft} />
-        <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
+        <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} reset={resetTimers} />
       </Grid>
     </Grid>
   );
