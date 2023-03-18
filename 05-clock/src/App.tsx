@@ -10,32 +10,21 @@ interface Session {
   seconds: number
 }
 
-// const lengthValues: Session[] = [
-//   {
-//     type: "break",
-//     minutes: 5,
-//     seconds: 0,
-//   },
-//   {
-//     type: "session",
-//     minutes: 25,
-//     seconds: 0
-//   }
-// ]
+const defaultSessionLengths = {
+  break: {
+    minutes: 5,
+    seconds: 0,
+  },
+  session: {
+    minutes: 25,
+    seconds: 0,
+  }
+}
 
 function App() {
   const [play, setPlay] = useState<boolean>(false);
   const [type, setType] = useState<string>("session");
-  const [session, setSession] = useState<{break: Session, session: Session}>({
-    break: {
-      minutes: 5,
-      seconds: 0,
-    },
-    session: {
-      minutes: 25,
-      seconds: 0,
-    }
-  })
+  const [session, setSession] = useState<{break: Session, session: Session}>(defaultSessionLengths)
   const [timeLeft, setTimeLeft] = useState<Session>(session.session);
 
   const calculateTimeLeft = (currentTime: Session) => {
@@ -64,10 +53,10 @@ function App() {
 
   const modifiers = <>
     <Grid item>
-      <Modifier type={"break"} minutes={session.break.minutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
+      <Modifier type={"break"} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
     <Grid item>
-      <Modifier type={"session"} minutes={session.session.minutes} timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
+      <Modifier type={"session"} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
   </>
 
