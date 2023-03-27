@@ -16,7 +16,7 @@ const defaultSessionLengths = {
     seconds: 0,
   },
   session: {
-    minutes: 25,
+    minutes: 20,
     seconds: 0,
   }
 }
@@ -27,18 +27,39 @@ function App() {
   const [session, setSession] = useState<{break: Session, session: Session}>(defaultSessionLengths)
   const [timeLeft, setTimeLeft] = useState<Session>(session.session);
 
+  const handleTimerDone = () => {
+    console.log('timer done')
+    // Change from session to break or break to session, reset timer
+    if (type === 'session') {
+      console.log('change to break');
+      setType('break');
+      setTimeLeft({...timeLeft, minutes: 5, seconds: 0})
+    } else if (type === 'break') {
+      setType('session');
+      setTimeLeft({...timeLeft, minutes: 1, seconds: 0})
+      console.log('change to session');
+    }
+    // setPlay(true);
+    console.log('timeLeft', timeLeft);
+  }
+
   const calculateTimeLeft = (currentTime: Session) => {
     if (play && currentTime) {
       if (currentTime.seconds === 0) {
         if (currentTime.minutes === 0) {
+          // setPlay(false);
+          handleTimerDone();
+          return {...currentTime, minutes: 0, seconds: 0};
         } else {
           return {...currentTime, minutes: currentTime.minutes - 1, seconds: 59};
         }
-        setPlay(false);
-        return {...currentTime, minutes: 0, seconds: 0};
       } else {
         return {...currentTime, seconds: currentTime.seconds - 1};
       }
+    } else {
+      console.log('calculate else');
+
+      return {minutes: 0, seconds: 0};
     }
   };
 
@@ -52,7 +73,10 @@ function App() {
   useEffect(() => {
     if (play) {
       const timer = setTimeout(() => {
-        setTimeLeft(calculateTimeLeft(timeLeft) ?? {minutes: 0, seconds: 0});
+        setTimeLeft(calculateTimeLeft(timeLeft));
+        if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+          handleTimerDone();
+        }
       }, 1000);
       return () => clearInterval(timer);
     }
