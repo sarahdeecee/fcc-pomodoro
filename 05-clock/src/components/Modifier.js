@@ -19,7 +19,7 @@ function Modifier(props) {
   
   const handleLengthDown = () => {
     const minutesDown = minutes - 1;
-    if (minutes !== 0 && !play) {
+    if (minutes !== 1 && !play) {
       setSession({...session, [type]: {minutes: minutesDown, seconds: 0}})
       if (type === 'session') {
         setTimeLeft({...session[type], minutes: minutesDown})

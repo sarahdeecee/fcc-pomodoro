@@ -16,8 +16,8 @@ const defaultSessionLengths = {
     seconds: 0,
   },
   session: {
-    minutes: 20,
-    seconds: 0,
+    minutes: 0,
+    seconds: 2,
   }
 }
 
@@ -27,27 +27,24 @@ function App() {
   const [session, setSession] = useState<{break: Session, session: Session}>(defaultSessionLengths)
   const [timeLeft, setTimeLeft] = useState<Session>(session.session);
 
+  const capitalizedType = type[0].toUpperCase() + type.slice(1,type.length);
+
   const handleTimerDone = () => {
     console.log('timer done')
     // Change from session to break or break to session, reset timer
     if (type === 'session') {
-      console.log('change to break');
       setType('break');
       setTimeLeft({...timeLeft, minutes: 5, seconds: 0})
     } else if (type === 'break') {
       setType('session');
       setTimeLeft({...timeLeft, minutes: 1, seconds: 0})
-      console.log('change to session');
     }
-    // setPlay(true);
-    console.log('timeLeft', timeLeft);
   }
 
   const calculateTimeLeft = (currentTime: Session) => {
     if (play && currentTime) {
       if (currentTime.seconds === 0) {
         if (currentTime.minutes === 0) {
-          // setPlay(false);
           handleTimerDone();
           return {...currentTime, minutes: 0, seconds: 0};
         } else {
@@ -57,7 +54,6 @@ function App() {
         return {...currentTime, seconds: currentTime.seconds - 1};
       }
     } else {
-      console.log('calculate else');
 
       return {minutes: 0, seconds: 0};
     }
@@ -97,7 +93,7 @@ function App() {
         {modifiers}
       </Grid>
       <Grid item>
-        <Typography id="timer-label" variant="h4">Session</Typography>
+        <Typography id="timer-label" variant="h4">{capitalizedType}</Typography>
         <Timer timeLeft={timeLeft} />
         <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} reset={resetTimers} />
       </Grid>

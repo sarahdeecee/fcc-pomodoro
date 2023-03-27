@@ -3,8 +3,8 @@ import { Typography } from '@mui/material';
 function Timer(props: any) {
   const {timeLeft} = props;
   const {minutes, seconds} = timeLeft;
-  const addPreceedingZero = (seconds: number): number | null => {
-    if (seconds < 10) {
+  const addPreceedingZero = (num: number): number | null => {
+    if (num < 10) {
       return 0;
     } else {
       return null;
@@ -13,7 +13,7 @@ function Timer(props: any) {
 
   return (
     <div>
-      <Typography id="time-left" variant="h1">{minutes}:{addPreceedingZero(seconds)}{seconds}</Typography>
+      <Typography id="time-left" variant="h1">{addPreceedingZero(minutes)}{minutes}:{addPreceedingZero(seconds)}{seconds}</Typography>
     </div>
   );
 }
