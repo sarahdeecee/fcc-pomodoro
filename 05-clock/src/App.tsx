@@ -33,9 +33,8 @@ function App() {
   const capitalizedType = type[0].toUpperCase() + type.slice(1,type.length);
 
   const handleTimerDone = () => {
-    console.log('timer done')
-    playAlarmSound();
     // Change from session to break or break to session, reset timer
+    playAlarmSound(); // Play alarm sound
     if (type === 'session') {
       setType('break');
       setTimeLeft({...timeLeft, minutes: session.break.minutes, seconds: 0})
