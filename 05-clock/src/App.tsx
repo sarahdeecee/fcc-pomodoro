@@ -16,10 +16,13 @@ const defaultSessionLengths = {
     seconds: 0,
   },
   session: {
-    minutes: 0,
-    seconds: 2,
+    minutes: 25,
+    seconds: 0,
   }
 }
+
+const alarmSound = new Audio('ding-pixabay.mp3');
+const playAlarmSound = () => alarmSound.play();
 
 function App() {
   const [play, setPlay] = useState<boolean>(false);
@@ -31,13 +34,14 @@ function App() {
 
   const handleTimerDone = () => {
     console.log('timer done')
+    playAlarmSound();
     // Change from session to break or break to session, reset timer
     if (type === 'session') {
       setType('break');
-      setTimeLeft({...timeLeft, minutes: 5, seconds: 0})
+      setTimeLeft({...timeLeft, minutes: session.break.minutes, seconds: 0})
     } else if (type === 'break') {
       setType('session');
-      setTimeLeft({...timeLeft, minutes: 1, seconds: 0})
+      setTimeLeft({...timeLeft, minutes: session.session.minutes, seconds: 0})
     }
   }
 
