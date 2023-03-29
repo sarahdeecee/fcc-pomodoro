@@ -3,7 +3,8 @@ import { Grid, Typography } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import useInterval from './hooks/useInterval';
 
 interface Session {
   minutes: number
@@ -81,18 +82,15 @@ function App() {
     setTimeLeft(defaultSessionLengths.session);
   }
 
-  useEffect(() => {
+  useInterval(() => {
     if (play) {
-      const timer = setTimeout(() => {
-        if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-          playAlarmSound();
-          handleTimerDone();
-        }
-        setTimeLeft(calculateTimeLeft(timeLeft));
-      }, 1000);
-      return () => clearTimeout(timer);
+      if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+        playAlarmSound();
+        handleTimerDone();
+      }
+      setTimeLeft(calculateTimeLeft(timeLeft));
     }
-  });
+  }, 1000);
 
   const modifiers = <>
     <Grid item>
