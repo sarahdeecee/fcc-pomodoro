@@ -46,8 +46,6 @@ function App() {
 
   const handleTimerDone = () => {
     // Change from session to break or break to session, reset timer
-    // playAlarmSound(); // Play alarm sound
-    
     if (type === 'session') {
       setType('break');
       setTimeLeft({...timeLeft, minutes: session.break.minutes, seconds: 0})
@@ -55,6 +53,8 @@ function App() {
       setType('session');
       setTimeLeft({...timeLeft, minutes: session.session.minutes, seconds: 0})
     }
+
+    playAlarmSound(); // Play alarm sound
   }
 
   const calculateTimeLeft = (currentTime: Session) => {
@@ -84,11 +84,10 @@ function App() {
 
   useInterval(() => {
     if (play) {
+      setTimeLeft(calculateTimeLeft(timeLeft));
       if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-        playAlarmSound();
         handleTimerDone();
       }
-      setTimeLeft(calculateTimeLeft(timeLeft));
     }
   }, 1000);
 
