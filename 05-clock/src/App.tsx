@@ -83,14 +83,14 @@ function App() {
 
   useEffect(() => {
     if (play) {
-      const timer = setInterval(() => {
-        setTimeLeft(calculateTimeLeft(timeLeft));
+      const timer = setTimeout(() => {
         if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
           playAlarmSound();
           handleTimerDone();
         }
+        setTimeLeft(calculateTimeLeft(timeLeft));
       }, 1000);
-      return () => clearInterval(timer);
+      return () => clearTimeout(timer);
     }
   });
 

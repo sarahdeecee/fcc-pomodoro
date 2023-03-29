@@ -8,22 +8,20 @@ function Modifier(props) {
   const capitalizedType = type[0].toUpperCase() + type.slice(1,type.length);
 
   const handleLengthUp = () => {
-    const minutesUp = minutes + 1;
     if (minutes < 60 && !play) {
+      const minutesUp = minutes + 1;
       setSession({...session, [type]: {minutes: minutesUp, seconds: 0}});
       if (currentType === type) {
-      //   console.log('types: ', buttonType, type);
         setTimeLeft({...session[currentType], minutes: minutesUp, seconds: 0})
       }
     }
   }
   
   const handleLengthDown = () => {
-    const minutesDown = minutes - 1;
     if (minutes > 1 && !play) {
+      const minutesDown = minutes - 1;
       setSession({...session, [type]: {minutes: minutesDown, seconds: 0}})
       if (currentType === type) {
-      //   console.log('types: ', buttonType, type);
         setTimeLeft({...session[currentType], minutes: minutesDown, seconds: 0})
       }
     }
