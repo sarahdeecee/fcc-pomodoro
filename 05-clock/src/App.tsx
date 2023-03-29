@@ -3,7 +3,7 @@ import { Grid, Typography } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useInterval from './hooks/useInterval';
 
 interface Session {
@@ -31,8 +31,8 @@ function App() {
   const beepRef = useRef<HTMLAudioElement>(null);
   
   const playAlarmSound = () => {
+    console.log('play alarm');
     if (beepRef.current) {
-      beepRef.current.currentTime = 0;
       beepRef.current.play();
     }
   }
@@ -54,7 +54,7 @@ function App() {
       setTimeLeft({...timeLeft, minutes: session.session.minutes, seconds: 0})
     }
 
-    playAlarmSound(); // Play alarm sound
+    // playAlarmSound(); // Play alarm sound
   }
 
   const calculateTimeLeft = (currentTime: Session) => {
@@ -81,14 +81,21 @@ function App() {
     setTimeLeft(defaultSessionLengths.session);
   }
 
-  useInterval(() => {
+  useEffect(() => {
     if (play) {
-      setTimeLeft(calculateTimeLeft(timeLeft))
-      if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-        handleTimerDone();
-      }
+      const timer = setTimeout(() => {
+        setTimeLeft(calculateTimeLeft(timeLeft));
+      }, 1000);
+      return () => clearInterval(timer);
     }
-  }, 1000);
+  });
+  
+  useEffect(() => {
+    if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
+      handleTimerDone();
+      playAlarmSound()
+    }
+  }, [timeLeft]);
 
   const modifiers = <>
     <Grid item>
