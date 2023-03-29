@@ -1,8 +1,7 @@
 import { Pause, PlayArrow, RestartAlt } from '@mui/icons-material';
-import { Button } from '@mui/material';
 
 function Controls(props) {
-  const {play, setPlay, timeLeft, setTimeLeft, reset, handleTimerDone} = props;
+  const {play, setPlay, reset} = props;
 
   const handlePause = () => {
     setPlay(false);

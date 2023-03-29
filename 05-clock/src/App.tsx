@@ -1,5 +1,5 @@
 import './App.css';
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
@@ -96,10 +96,10 @@ function App() {
 
   const modifiers = <>
     <Grid item>
-      <Modifier type={"break"} currentType={type} play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
+      <Modifier type={"break"} currentType={type} play={play} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
     <Grid item>
-      <Modifier type={"session"} currentType={type} play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
+      <Modifier type={"session"} currentType={type} play={play} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
     </Grid>
   </>
 
@@ -111,7 +111,7 @@ function App() {
       <Grid item>
         <Typography id="timer-label" variant="h4">{capitalizedType}</Typography>
         <Timer timeLeft={timeLeft} />
-        <Controls play={play} setPlay={setPlay} timeLeft={timeLeft} setTimeLeft={setTimeLeft} reset={resetTimers} />
+        <Controls play={play} setPlay={setPlay} reset={resetTimers} />
       </Grid>
       <audio
         id="beep"

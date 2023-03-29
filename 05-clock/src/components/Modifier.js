@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from '@mui/material';
 import {ArrowUpward, ArrowDownward} from '@mui/icons-material';
 
 function Modifier(props) {
-  const {currentType, type, play, setPlay, timeLeft, setTimeLeft, session, setSession} = props;
+  const {currentType, type, play, setTimeLeft, session, setSession} = props;
 
   const minutes = session[type].minutes;
   const capitalizedType = type[0].toUpperCase() + type.slice(1,type.length);
