@@ -1,4 +1,5 @@
 import { Pause, PlayArrow, RestartAlt } from '@mui/icons-material';
+import { Button } from '@mui/material';
 
 function Controls(props) {
   const {play, setPlay, reset} = props;
@@ -13,10 +14,12 @@ function Controls(props) {
 
   return (
     <div>
-      {play ? <Pause id="start_stop" onClick={handlePause} /> : <PlayArrow id="start_stop" onClick={handlePlay} /> }
-      {/* <PlayArrow id="start_stop" onClick={handlePlay} />
-      <Pause id="start_stop" onClick={handlePause} /> */}
-      <RestartAlt id="reset" onClick={reset} />
+      {play ? <Button id="start_stop" onClick={handlePause}><Pause /></Button> : <Button id="start_stop" onClick={handlePlay}><PlayArrow /></Button>}
+      {/* <div id="start_stop">
+        <PlayArrow onClick={handlePlay} />
+        <Pause onClick={handlePause} />
+      </div> */}
+      <Button id="reset" onClick={() => reset()}><RestartAlt /></Button>
     </div>
   );
 }
