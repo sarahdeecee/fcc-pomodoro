@@ -15,10 +15,6 @@ function Controls(props) {
   return (
     <div>
       {play ? <Button id="start_stop" onClick={handlePause}><Pause /></Button> : <Button id="start_stop" onClick={handlePlay}><PlayArrow /></Button>}
-      {/* <div id="start_stop">
-        <PlayArrow onClick={handlePlay} />
-        <Pause onClick={handlePause} />
-      </div> */}
       <Button id="reset" onClick={() => reset()}><RestartAlt /></Button>
     </div>
   );

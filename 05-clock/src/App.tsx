@@ -4,7 +4,6 @@ import Modifier from './components/Modifier';
 import Controls from './components/Controls';
 import Timer from './components/Timer';
 import { useEffect, useRef, useState } from 'react';
-import useInterval from './hooks/useInterval';
 
 interface Session {
   minutes: number
@@ -21,7 +20,6 @@ const defaultSessionLengths = {
     seconds: 0,
   }
 }
-
 
 function App() {
   const [play, setPlay] = useState<boolean>(false);
@@ -53,14 +51,13 @@ function App() {
       setType('session');
       setTimeLeft({...timeLeft, minutes: session.session.minutes, seconds: 0})
     }
-
-    // playAlarmSound(); // Play alarm sound
   }
 
   const calculateTimeLeft = (currentTime: Session) => {
     if (currentTime) {
       if (currentTime.seconds === 0) {
         if (currentTime.minutes === 0) {
+          // timer completed
           return {...currentTime, minutes: 0, seconds: 0};
         } else {
           return {...currentTime, minutes: currentTime.minutes - 1, seconds: 59};
@@ -81,6 +78,7 @@ function App() {
     setTimeLeft(defaultSessionLengths.session);
   }
 
+  // decrement timer when play
   useEffect(() => {
     if (play) {
       const timer = setTimeout(() => {
@@ -90,13 +88,15 @@ function App() {
     }
   });
   
+  // when timer is complete
   useEffect(() => {
     if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
-      handleTimerDone();
       playAlarmSound()
+      handleTimerDone();
     }
   }, [timeLeft]);
 
+  // Increment and decrement times for break and session
   const modifiers = <>
     <Grid item>
       <Modifier type={"break"} currentType={type} play={play} setTimeLeft={setTimeLeft} session={session} setSession={setSession} />
