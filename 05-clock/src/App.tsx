@@ -61,7 +61,6 @@ function App() {
     if (currentTime) {
       if (currentTime.seconds === 0) {
         if (currentTime.minutes === 0) {
-          // handleTimerDone();
           return {...currentTime, minutes: 0, seconds: 0};
         } else {
           return {...currentTime, minutes: currentTime.minutes - 1, seconds: 59};
@@ -84,7 +83,7 @@ function App() {
 
   useInterval(() => {
     if (play) {
-      setTimeLeft(calculateTimeLeft(timeLeft));
+      setTimeLeft(calculateTimeLeft(timeLeft))
       if (timeLeft.minutes === 0 && timeLeft.seconds === 0) {
         handleTimerDone();
       }
