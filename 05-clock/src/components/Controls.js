@@ -15,6 +15,8 @@ function Controls(props) {
   return (
     <div>
       {play ? <Pause id="start_stop" onClick={handlePause} /> : <PlayArrow id="start_stop" onClick={handlePlay} /> }
+      {/* <PlayArrow id="start_stop" onClick={handlePlay} />
+      <Pause id="start_stop" onClick={handlePause} /> */}
       <RestartAlt id="reset" onClick={reset} />
     </div>
   );
